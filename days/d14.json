@@ -1,0 +1,82 @@
+{
+ "n": 14,
+ "id": "d14",
+ "lesson": null,
+ "title": "Пров+ерка",
+ "titleEn": "Week 2 checkpoint",
+ "new": [],
+ "extra": {
+  "type": "check",
+  "title": "Пров+ерка",
+  "titleEn": "Unseen sentences",
+  "imitate": [
+   {
+    "ru": "Мо+я сестр+а молод+ая и +очень +умная.",
+    "en": "My sister is young and very smart.",
+    "v": "denis"
+   },
+   {
+    "ru": "Вы говор+ите по-англ+ийски? — Да, немн+ого.",
+    "en": "Do you speak English? — Yes, a little.",
+    "v": "irina"
+   },
+   {
+    "ru": "+Этот челов+ек — наш н+овый сос+ед.",
+    "en": "This person is our new neighbour.",
+    "v": "ruslan"
+   },
+   {
+    "ru": "Сег+одня пог+ода плох+ая.",
+    "en": "The weather is bad today.",
+    "v": "dmitri"
+   }
+  ],
+  "dictation": [
+   {
+    "ru": "Он+а н+емка.",
+    "v": "denis"
+   },
+   {
+    "ru": "Я немн+ого говор+ю по-р+усски.",
+    "v": "irina"
+   },
+   {
+    "ru": "+Эти д+ети +очень м+аленькие.",
+    "v": "ruslan"
+   }
+  ],
+  "translate": [
+   {
+    "en": "My mum is Russian.",
+    "ru": "Мо+я м+ама р+усская."
+   },
+   {
+    "en": "Do you speak English? (informal)",
+    "ru": "Ты говор+ишь по-англ+ийски?"
+   },
+   {
+    "en": "This car is new.",
+    "ru": "+Эта маш+ина н+овая."
+   }
+  ]
+ },
+ "watch": [
+  {
+   "label": "Listening: Nastya’s slow story #56 (Luisa, part 2)",
+   "url": "https://www.youtube.com/watch?v=sUvTHHFYJTk"
+  }
+ ],
+ "grammarKnown": [],
+ "audio": {
+  "denis|Мо+я сестр+а молод+ая и +очень +умная.": "audio/c14aa94211ba.mp3",
+  "irina|Вы говор+ите по-англ+ийски? — Да, немн+ого.": "audio/2d87273ecefa.mp3",
+  "ruslan|+Этот челов+ек — наш н+овый сос+ед.": "audio/19832a106fc6.mp3",
+  "dmitri|Сег+одня пог+ода плох+ая.": "audio/a21f7df842bd.mp3",
+  "denis|Он+а н+емка.": "audio/d8beadb36b5c.mp3",
+  "irina|Я немн+ого говор+ю по-р+усски.": "audio/51d644f22b8e.mp3",
+  "ruslan|+Эти д+ети +очень м+аленькие.": "audio/1de4e5490633.mp3",
+  "ruslan|Мо+я м+ама р+усская.": "audio/5340dadce101.mp3",
+  "ruslan|Ты говор+ишь по-англ+ийски?": "audio/dfe2fc309211.mp3",
+  "ruslan|+Эта маш+ина н+овая.": "audio/75c81f51aa76.mp3"
+ }
+}

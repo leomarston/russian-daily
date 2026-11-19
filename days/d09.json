@@ -1,0 +1,236 @@
+{
+ "n": 9,
+ "id": "d09",
+ "lesson": 2,
+ "title": "Кто он+а?",
+ "titleEn": "Who is she?",
+ "new": [
+  {
+   "id": "amerikanets",
+   "ru": "америк+анец",
+   "en": "American (a man)"
+  },
+  {
+   "id": "amerikanka",
+   "ru": "америк+анка",
+   "en": "American (a woman)"
+  },
+  {
+   "id": "zhenshchina",
+   "ru": "ж+енщина",
+   "en": "woman",
+   "note": "stress the first syllable: Ж+ЕН-щи-на"
+  },
+  {
+   "id": "chelovek",
+   "ru": "челов+ек",
+   "en": "person, human being"
+  },
+  {
+   "id": "familiya",
+   "ru": "фам+илия",
+   "en": "surname",
+   "note": "false friend: “family” is семь+я"
+  },
+  {
+   "id": "yazyk",
+   "ru": "яз+ык",
+   "en": "language; tongue"
+  },
+  {
+   "id": "ne-za-chto",
+   "ru": "Н+е за что.",
+   "en": "You’re welcome. / Don’t mention it.",
+   "note": "the answer to спас+ибо; что is said што"
+  },
+  {
+   "id": "do-svidaniya",
+   "ru": "До свид+ания!",
+   "en": "Goodbye!",
+   "note": "polite; fine with anyone"
+  },
+  {
+   "id": "lyogkiy",
+   "ru": "лёгкий",
+   "en": "easy; light",
+   "note": "гк is said хк: лёхкий"
+  },
+  {
+   "id": "tozhe",
+   "ru": "т+оже",
+   "en": "too, also",
+   "note": "Я т+оже. = Me too."
+  }
+ ],
+ "extra": {
+  "type": "story",
+  "title": "Кто он+а?",
+  "titleEn": "Who is she?",
+  "setup": "At a party, Ivan asks Anna about two guests.",
+  "lines": [
+   {
+    "who": "Ив+ан",
+    "v": "dmitri",
+    "ru": "+Анна, кто +это?",
+    "en": "Anna, who’s that?"
+   },
+   {
+    "who": "+Анна",
+    "v": "irina",
+    "ru": "+Это мо+я подр+уга. Её зов+ут Кейт.",
+    "en": "That’s my friend. Her name is Kate."
+   },
+   {
+    "who": "Ив+ан",
+    "v": "dmitri",
+    "ru": "Он+а р+усская?",
+    "en": "Is she Russian?"
+   },
+   {
+    "who": "+Анна",
+    "v": "irina",
+    "ru": "Нет, он+а америк+анка. Её фам+илия Смит.",
+    "en": "No, she’s American. Her surname is Smith."
+   },
+   {
+    "who": "Ив+ан",
+    "v": "dmitri",
+    "ru": "А +это кто? Её муж?",
+    "en": "And who’s that? Her husband?"
+   },
+   {
+    "who": "+Анна",
+    "v": "irina",
+    "ru": "Да. Ег+о зов+ут Марк. Он т+оже америк+анец.",
+    "en": "Yes. His name is Mark. He’s American too."
+   },
+   {
+    "who": "Ив+ан",
+    "v": "dmitri",
+    "ru": "Он +очень выс+окий!",
+    "en": "He’s very tall!"
+   },
+   {
+    "who": "+Анна",
+    "v": "irina",
+    "ru": "Да, и +очень +умный.",
+    "en": "Yes, and very smart."
+   }
+  ],
+  "questions": [
+   {
+    "q": "Who is Kate?",
+    "opts": [
+     "Anna’s friend",
+     "Anna’s sister",
+     "Ivan’s wife"
+    ],
+    "a": 0
+   },
+   {
+    "q": "Is Kate Russian?",
+    "opts": [
+     "No, she’s American",
+     "Yes",
+     "No, she’s German"
+    ],
+    "a": 0
+   },
+   {
+    "q": "What is Kate’s surname?",
+    "opts": [
+     "Smith",
+     "Mark",
+     "Anna"
+    ],
+    "a": 0
+   },
+   {
+    "q": "What is Mark like?",
+    "opts": [
+     "very tall and smart",
+     "small and young",
+     "old and handsome"
+    ],
+    "a": 0
+   }
+  ],
+  "dictation": [
+   {
+    "ru": "Он+а америк+анка.",
+    "v": "irina"
+   },
+   {
+    "ru": "Он т+оже америк+анец.",
+    "v": "irina"
+   },
+   {
+    "ru": "Он +очень выс+окий!",
+    "v": "dmitri"
+   }
+  ]
+ },
+ "speak": {
+  "prompt": "Introduce a friend: name, nationality, what they’re like",
+  "model": {
+   "ru": "+Это мой друг. Ег+о зов+ут Марк. Он америк+анец. Он выс+окий и +умный.",
+   "en": "This is my friend. His name is Mark. He’s American. He’s tall and smart."
+  },
+  "rounds": [
+   45,
+   30
+  ]
+ },
+ "watch": [
+  {
+   "label": "Nastya · Day 2, people and nationalities",
+   "url": "https://www.youtube.com/watch?v=Vrglf_fBbcQ&t=114s"
+  }
+ ],
+ "grammarKnown": [
+  "nationality words come in pairs: американец (man) / американка (woman), русский / русская"
+ ],
+ "chat": {
+  "scenario": "A party with guests from different countries. I give each guest’s name and country in brackets; you introduce them to me. Then I ask about you, and you give your real nationality (if you don’t know the word, I give it as a new word).",
+  "goal": "introduce 3 guests (name, nationality, one adjective), then say your own nationality",
+  "targets": [
+   "the nationality matches the person: американец / американка, русский / русская",
+   "adjective endings from Day 8"
+  ],
+  "forms": "Она американка (not \"американец\"). Он тоже американец. Её фамилия Смит. No word for \"is\": Она русская. Correct only nationality words and adjective endings."
+ },
+ "audio": {
+  "irina|америк+анец": "audio/cbe84d21bcc0.mp3",
+  "dmitri|америк+анец": "audio/77ce8ee8012b.mp3",
+  "irina|америк+анка": "audio/94593e1ec1bd.mp3",
+  "dmitri|америк+анка": "audio/ef0fd8372819.mp3",
+  "irina|ж+енщина": "audio/5d627862fb9d.mp3",
+  "dmitri|ж+енщина": "audio/4e615d7492e2.mp3",
+  "irina|челов+ек": "audio/535bb1ac67da.mp3",
+  "dmitri|челов+ек": "audio/df29d94eec76.mp3",
+  "irina|фам+илия": "audio/706d993a620d.mp3",
+  "dmitri|фам+илия": "audio/141c1de9b9b7.mp3",
+  "irina|яз+ык": "audio/a63efe36cf60.mp3",
+  "dmitri|яз+ык": "audio/718440bea60f.mp3",
+  "irina|Н+е за что.": "audio/1c42eece73ba.mp3",
+  "dmitri|Н+е за что.": "audio/807b66c69df1.mp3",
+  "irina|До свид+ания!": "audio/f6edfe634d8c.mp3",
+  "dmitri|До свид+ания!": "audio/94cf2c613e52.mp3",
+  "irina|лёгкий": "audio/77c5c451f04c.mp3",
+  "dmitri|лёгкий": "audio/742e98b6f404.mp3",
+  "irina|т+оже": "audio/34d0cb297e84.mp3",
+  "dmitri|т+оже": "audio/0b9c1662e284.mp3",
+  "dmitri|+Анна, кто +это?": "audio/1940ed07d465.mp3",
+  "irina|+Это мо+я подр+уга. Её зов+ут Кейт.": "audio/875d3c1a06a9.mp3",
+  "dmitri|Он+а р+усская?": "audio/e0bc92f79280.mp3",
+  "irina|Нет, он+а америк+анка. Её фам+илия Смит.": "audio/b1d064d2a6a0.mp3",
+  "dmitri|А +это кто? Её муж?": "audio/b643e17035f1.mp3",
+  "irina|Да. Ег+о зов+ут Марк. Он т+оже америк+анец.": "audio/cf3115dcbc13.mp3",
+  "dmitri|Он +очень выс+окий!": "audio/890a07d26887.mp3",
+  "irina|Да, и +очень +умный.": "audio/8b140aafc6a3.mp3",
+  "irina|Он+а америк+анка.": "audio/5a79c4bf8deb.mp3",
+  "irina|Он т+оже америк+анец.": "audio/61621ce2d3a1.mp3",
+  "denis|+Это мой друг. Ег+о зов+ут Марк. Он америк+анец. Он выс+окий и +умный.": "audio/f826b50a46ec.mp3",
+  "story|d09": "audio/story-d09-90473040.mp3"
+ }
+}

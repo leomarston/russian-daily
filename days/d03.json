@@ -1,0 +1,268 @@
+{
+ "n": 3,
+ "id": "d03",
+ "lesson": 1,
+ "title": "Семь+я",
+ "titleEn": "Family",
+ "new": [
+  {
+   "id": "chat-normalno-spasibo",
+   "ru": "Норм+ально, спас+ибо.",
+   "en": "Fine, thanks.",
+   "note": "from your chat, 2026-11-13: no “я” before норм+ально"
+  },
+  {
+   "id": "chat-pochti",
+   "ru": "Почт+и!",
+   "en": "Almost!",
+   "note": "from your chat, 2026-11-13"
+  },
+  {
+   "id": "chat-eshchyo-raz",
+   "ru": "Ещё раз?",
+   "en": "Once more? / Again?",
+   "note": "from your chat, 2026-11-13"
+  },
+  {
+   "id": "kto-eto",
+   "ru": "Кто +это?",
+   "en": "Who is this?"
+  },
+  {
+   "id": "eto",
+   "ru": "+Это…",
+   "en": "This is…",
+   "note": "no word for “is” in Russian"
+  },
+  {
+   "id": "mama",
+   "ru": "м+ама",
+   "en": "mum"
+  },
+  {
+   "id": "papa",
+   "ru": "п+апа",
+   "en": "dad"
+  },
+  {
+   "id": "brat",
+   "ru": "брат",
+   "en": "brother"
+  },
+  {
+   "id": "sestra",
+   "ru": "сестр+а",
+   "en": "sister"
+  },
+  {
+   "id": "muzh",
+   "ru": "муж",
+   "en": "husband"
+  },
+  {
+   "id": "zhena",
+   "ru": "жен+а",
+   "en": "wife"
+  },
+  {
+   "id": "syn",
+   "ru": "сын",
+   "en": "son"
+  },
+  {
+   "id": "doch",
+   "ru": "дочь",
+   "en": "daughter"
+  },
+  {
+   "id": "drug",
+   "ru": "друг",
+   "en": "friend (male)"
+  },
+  {
+   "id": "podruga",
+   "ru": "подр+уга",
+   "en": "friend (female)",
+   "note": "not “girlfriend”: that is д+евушка"
+  }
+ ],
+ "extra": {
+  "type": "story",
+  "title": "Фот+о",
+  "titleEn": "The photo",
+  "setup": "Anna shows Ivan a family photo.",
+  "lines": [
+   {
+    "who": "Ив+ан",
+    "v": "dmitri",
+    "ru": "Кто +это?",
+    "en": "Who’s this?"
+   },
+   {
+    "who": "+Анна",
+    "v": "irina",
+    "ru": "+Это м+ама. Её зов+ут +Ольга.",
+    "en": "This is Mum. Her name is Olga."
+   },
+   {
+    "who": "Ив+ан",
+    "v": "dmitri",
+    "ru": "А +это кто?",
+    "en": "And who’s this?"
+   },
+   {
+    "who": "+Анна",
+    "v": "irina",
+    "ru": "+Это п+апа. Ег+о зов+ут Пётр.",
+    "en": "This is Dad. His name is Pyotr."
+   },
+   {
+    "who": "Ив+ан",
+    "v": "dmitri",
+    "ru": "А +это брат?",
+    "en": "And is this a brother?"
+   },
+   {
+    "who": "+Анна",
+    "v": "irina",
+    "ru": "Нет, +это муж. Ег+о зов+ут Макс+им.",
+    "en": "No, this is my husband. His name is Maxim."
+   },
+   {
+    "who": "Ив+ан",
+    "v": "dmitri",
+    "ru": "А +это кто?",
+    "en": "And who’s this?"
+   },
+   {
+    "who": "+Анна",
+    "v": "irina",
+    "ru": "+Это сын, С+аша. А +это дочь, М+аша.",
+    "en": "This is my son, Sasha. And this is my daughter, Masha."
+   }
+  ],
+  "questions": [
+   {
+    "q": "Who is Olga?",
+    "opts": [
+     "The mum",
+     "The daughter",
+     "The sister"
+    ],
+    "a": 0
+   },
+   {
+    "q": "What is the husband’s name?",
+    "opts": [
+     "Maxim",
+     "Pyotr",
+     "Sasha"
+    ],
+    "a": 0
+   },
+   {
+    "q": "Who is Pyotr?",
+    "opts": [
+     "The dad",
+     "The son",
+     "The husband"
+    ],
+    "a": 0
+   },
+   {
+    "q": "Who is Masha?",
+    "opts": [
+     "The daughter",
+     "The mum",
+     "A friend"
+    ],
+    "a": 0
+   }
+  ],
+  "dictation": [
+   {
+    "ru": "+Это м+ама.",
+    "v": "irina"
+   },
+   {
+    "ru": "Ег+о зов+ут Макс+им.",
+    "v": "irina"
+   },
+   {
+    "ru": "Кто +это?",
+    "v": "dmitri"
+   }
+  ]
+ },
+ "speak": {
+  "prompt": "Show a family photo: who is who, and their names",
+  "model": {
+   "ru": "+Это м+ама. Её зов+ут +Ольга. А +это п+апа.",
+   "en": "This is Mum. Her name is Olga. And this is Dad."
+  },
+  "rounds": [
+   45,
+   30
+  ]
+ },
+ "watch": [
+  {
+   "label": "Nastya · Day 1, family words",
+   "url": "https://www.youtube.com/watch?v=eEz9kqbn2Vw&t=626s"
+  }
+ ],
+ "grammarKnown": [
+  "Это… = this is (Russian has no “is” in the present)"
+ ],
+ "chat": {
+  "scenario": "You show me a family photo, real or imaginary. I ask Кто это?",
+  "goal": "name 4 family members and say their names",
+  "targets": [
+   "Это + family word (Russian has no word for \"is\")",
+   "Его / Её зовут…"
+  ],
+  "forms": "Это мама (not \"Это есть мама\"). Мама → её зовут; папа → его зовут."
+ },
+ "audio": {
+  "irina|Норм+ально, спас+ибо.": "audio/c970196dbaf4.mp3",
+  "dmitri|Норм+ально, спас+ибо.": "audio/7df1c8d2756f.mp3",
+  "irina|Почт+и!": "audio/24373bd91e75.mp3",
+  "dmitri|Почт+и!": "audio/3f9364c0ca8f.mp3",
+  "irina|Ещё раз?": "audio/69185dfaea5a.mp3",
+  "dmitri|Ещё раз?": "audio/b675f00a0904.mp3",
+  "irina|Кто +это?": "audio/4e7ea8bf7b03.mp3",
+  "dmitri|Кто +это?": "audio/1d20f97a2636.mp3",
+  "irina|+Это…": "audio/3b405dcd3482.mp3",
+  "dmitri|+Это…": "audio/fc98c21ec3c9.mp3",
+  "irina|м+ама": "audio/502ee3effafb.mp3",
+  "dmitri|м+ама": "audio/b3a30714bdd2.mp3",
+  "irina|п+апа": "audio/a9f2b473648f.mp3",
+  "dmitri|п+апа": "audio/2159d2706f88.mp3",
+  "irina|брат": "audio/567c9c4713ea.mp3",
+  "dmitri|брат": "audio/6a381c91e47a.mp3",
+  "irina|сестр+а": "audio/c05fb27f2ce7.mp3",
+  "dmitri|сестр+а": "audio/384c0865a120.mp3",
+  "irina|муж": "audio/37f7376635f3.mp3",
+  "dmitri|муж": "audio/894d2926fae2.mp3",
+  "irina|жен+а": "audio/97c2af5e4d36.mp3",
+  "dmitri|жен+а": "audio/d7058544e5ea.mp3",
+  "irina|сын": "audio/06c0cb2137f3.mp3",
+  "dmitri|сын": "audio/7754b21d49a4.mp3",
+  "irina|дочь": "audio/786093d0c02b.mp3",
+  "dmitri|дочь": "audio/92421eb70628.mp3",
+  "irina|друг": "audio/0546ebc0dd14.mp3",
+  "dmitri|друг": "audio/f0201d98dafd.mp3",
+  "irina|подр+уга": "audio/e917d9d1a25c.mp3",
+  "dmitri|подр+уга": "audio/c0fba9abfcc6.mp3",
+  "irina|+Это м+ама. Её зов+ут +Ольга.": "audio/f5ab2b5b0ce8.mp3",
+  "dmitri|А +это кто?": "audio/a92d82b202ed.mp3",
+  "irina|+Это п+апа. Ег+о зов+ут Пётр.": "audio/715fdc977154.mp3",
+  "dmitri|А +это брат?": "audio/dd8623f8ec42.mp3",
+  "irina|Нет, +это муж. Ег+о зов+ут Макс+им.": "audio/35763518690c.mp3",
+  "irina|+Это сын, С+аша. А +это дочь, М+аша.": "audio/55f1d7256991.mp3",
+  "irina|+Это м+ама.": "audio/780da46633dc.mp3",
+  "irina|Ег+о зов+ут Макс+им.": "audio/b15c08c44227.mp3",
+  "denis|+Это м+ама. Её зов+ут +Ольга. А +это п+апа.": "audio/edc3c9485f07.mp3",
+  "story|d03": "audio/story-d03-eda0d0c5.mp3"
+ }
+}

@@ -1,0 +1,253 @@
+{
+ "n": 2,
+ "id": "d02",
+ "lesson": 1,
+ "title": "Я, ты, вы",
+ "titleEn": "Who is who",
+ "new": [
+  {
+   "id": "chat-khorosho-spasibo-a-u-tebya",
+   "ru": "Хорош+о, спас+ибо. А у теб+я?",
+   "en": "Fine, thanks. And you? (informal)",
+   "note": "from your chat, 2026-11-11: no “я” before хорош+о"
+  },
+  {
+   "id": "chat-a-u-vas",
+   "ru": "А у вас?",
+   "en": "And you? (formal, after “how are you?”)",
+   "note": "from your chat, 2026-11-11"
+  },
+  {
+   "id": "ya",
+   "ru": "я",
+   "en": "I"
+  },
+  {
+   "id": "ty",
+   "ru": "ты",
+   "en": "you (informal)",
+   "note": "a friend, family, a child"
+  },
+  {
+   "id": "vy",
+   "ru": "вы",
+   "en": "you (formal or plural)",
+   "note": "a stranger, a teacher, or a group"
+  },
+  {
+   "id": "on",
+   "ru": "он",
+   "en": "he"
+  },
+  {
+   "id": "ona",
+   "ru": "он+а",
+   "en": "she",
+   "note": "unstressed о sounds like а: ан+а"
+  },
+  {
+   "id": "my",
+   "ru": "мы",
+   "en": "we"
+  },
+  {
+   "id": "oni",
+   "ru": "он+и",
+   "en": "they"
+  },
+  {
+   "id": "ego-zovut",
+   "ru": "Ег+о зов+ут…",
+   "en": "His name is…",
+   "note": "ег+о is said “ye-VO”"
+  },
+  {
+   "id": "eyo-zovut",
+   "ru": "Её зов+ут…",
+   "en": "Her name is…"
+  },
+  {
+   "id": "da",
+   "ru": "да",
+   "en": "yes"
+  },
+  {
+   "id": "net",
+   "ru": "нет",
+   "en": "no"
+  }
+ ],
+ "extra": {
+  "type": "grammar",
+  "title": "Who is called what",
+  "titleEn": "Asking names",
+  "ru": "Как ___ зов+ут?",
+  "table": [
+   [
+    "я",
+    "мен+я",
+    "my name is…"
+   ],
+   [
+    "ты",
+    "теб+я",
+    "what’s your name?"
+   ],
+   [
+    "вы",
+    "вас",
+    "what’s your name? (formal)"
+   ],
+   [
+    "он",
+    "ег+о",
+    "his name is…"
+   ],
+   [
+    "он+а",
+    "её",
+    "her name is…"
+   ]
+  ],
+  "note": "Russian says “they call me”: Мен+я зов+ут +Анна. So the pronoun changes.",
+  "input": [
+   {
+    "ru": "Как её зов+ут?",
+    "q": "Who is the question about?",
+    "opts": [
+     "a woman",
+     "a man",
+     "you"
+    ],
+    "a": 0,
+    "why": "её = her"
+   },
+   {
+    "ru": "Ег+о зов+ут Ол+ег.",
+    "q": "Who is Oleg?",
+    "opts": [
+     "a man being pointed out",
+     "the speaker",
+     "the listener"
+    ],
+    "a": 0,
+    "why": "ег+о = him; the speaker would say мен+я"
+   },
+   {
+    "ru": "Мен+я зов+ут М+аша.",
+    "q": "Who is Masha?",
+    "opts": [
+     "the speaker",
+     "the listener",
+     "someone else"
+    ],
+    "a": 0,
+    "why": "мен+я = me"
+   },
+   {
+    "ru": "Как вас зов+ут?",
+    "q": "Who is being asked?",
+    "opts": [
+     "a stranger, or a group",
+     "a little brother"
+    ],
+    "a": 0,
+    "why": "вас = formal or plural you"
+   }
+  ],
+  "produce": [
+   {
+    "en": "What’s his name?",
+    "ru": "Как ег+о зов+ут?",
+    "hint": "он → ег+о"
+   },
+   {
+    "en": "Her name is Masha.",
+    "ru": "Её зов+ут М+аша.",
+    "hint": "он+а → её"
+   },
+   {
+    "en": "What’s your name? (to a teacher)",
+    "ru": "Как вас зов+ут?",
+    "hint": "teacher → вы → вас"
+   },
+   {
+    "en": "My name is Ivan.",
+    "ru": "Мен+я зов+ут Ив+ан.",
+    "hint": "я → мен+я"
+   },
+   {
+    "en": "What’s your name? (to a child)",
+    "ru": "Как теб+я зов+ут?",
+    "hint": "child → ты → теб+я"
+   }
+  ]
+ },
+ "speak": {
+  "prompt": "Point at two people and say their names",
+  "model": {
+   "ru": "Её зов+ут +Анна. А ег+о зов+ут Ол+ег.",
+   "en": "Her name is Anna. And his name is Oleg."
+  },
+  "rounds": [
+   45,
+   30
+  ]
+ },
+ "watch": [
+  {
+   "label": "Nastya · Day 1, pronouns part",
+   "url": "https://www.youtube.com/watch?v=eEz9kqbn2Vw&t=27s"
+  }
+ ],
+ "grammarKnown": [
+  "я, ты, вы, он, она, мы, они",
+  "меня / тебя / вас / его / её + зовут"
+ ],
+ "chat": {
+  "scenario": "Still at the party. I point at other guests and give their names in brackets; you tell me who is who.",
+  "goal": "say his or her name for 4 guests, then ask me about one",
+  "targets": [
+   "он / она",
+   "Его зовут… / Её зовут…"
+  ],
+  "forms": "Её зовут Маша (not \"Она зовут\"). Его зовут Олег (not \"Он зовут\"). его is said ye-VO."
+ },
+ "audio": {
+  "irina|Хорош+о, спас+ибо. А у теб+я?": "audio/380b90495e1c.mp3",
+  "dmitri|Хорош+о, спас+ибо. А у теб+я?": "audio/a077d0642bce.mp3",
+  "irina|А у вас?": "audio/b3a5bde0f707.mp3",
+  "dmitri|А у вас?": "audio/be3a7a2720ca.mp3",
+  "irina|я": "audio/9f242e2b1b8f.mp3",
+  "dmitri|я": "audio/688b0759f4bd.mp3",
+  "irina|ты": "audio/3706617b8015.mp3",
+  "dmitri|ты": "audio/108287da7428.mp3",
+  "irina|вы": "audio/7521d857c67c.mp3",
+  "dmitri|вы": "audio/281b110b5cfe.mp3",
+  "irina|он": "audio/a8ec17070398.mp3",
+  "dmitri|он": "audio/d7d84bfe8fa2.mp3",
+  "irina|он+а": "audio/9db79cfb0a44.mp3",
+  "dmitri|он+а": "audio/ef2e28051dc5.mp3",
+  "irina|мы": "audio/2b3c4587a58c.mp3",
+  "dmitri|мы": "audio/882e839e3e7b.mp3",
+  "irina|он+и": "audio/863f467a2bee.mp3",
+  "dmitri|он+и": "audio/aa43bcff232a.mp3",
+  "irina|Ег+о зов+ут…": "audio/52d35b24eaac.mp3",
+  "dmitri|Ег+о зов+ут…": "audio/abe3bc01cd07.mp3",
+  "irina|Её зов+ут…": "audio/c749ada221ff.mp3",
+  "dmitri|Её зов+ут…": "audio/6e680a877c92.mp3",
+  "irina|да": "audio/814b4459a60f.mp3",
+  "dmitri|да": "audio/674b47eea395.mp3",
+  "irina|нет": "audio/7f70548507d9.mp3",
+  "dmitri|нет": "audio/6eb98e3f255b.mp3",
+  "ruslan|Как её зов+ут?": "audio/d8afe3e572f2.mp3",
+  "ruslan|Ег+о зов+ут Ол+ег.": "audio/383e67953cb3.mp3",
+  "ruslan|Мен+я зов+ут М+аша.": "audio/574bdab22521.mp3",
+  "ruslan|Как вас зов+ут?": "audio/767695d5cc97.mp3",
+  "ruslan|Как ег+о зов+ут?": "audio/b8b6b9abc619.mp3",
+  "ruslan|Её зов+ут М+аша.": "audio/4f7164f74de6.mp3",
+  "ruslan|Мен+я зов+ут Ив+ан.": "audio/3b5d6a4a87c7.mp3",
+  "ruslan|Как теб+я зов+ут?": "audio/c4c037d9e0d5.mp3",
+  "denis|Её зов+ут +Анна. А ег+о зов+ут Ол+ег.": "audio/a541309e275a.mp3"
+ }
+}

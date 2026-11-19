@@ -1,0 +1,99 @@
+{
+ "n": 7,
+ "id": "d07",
+ "lesson": null,
+ "title": "Пров+ерка",
+ "titleEn": "Week 1 checkpoint",
+ "new": [
+  {
+   "id": "chat-kakoy-on",
+   "ru": "Как+ой он?",
+   "en": "What is he (it) like?",
+   "note": "from your chat, 2026-11-17"
+  },
+  {
+   "id": "chat-moy-brat-ochen-umnyy",
+   "ru": "Мой брат +очень +умный.",
+   "en": "My brother is very smart.",
+   "note": "from your chat, 2026-11-17"
+  }
+ ],
+ "extra": {
+  "type": "check",
+  "title": "Пров+ерка",
+  "titleEn": "Unseen sentences",
+  "imitate": [
+   {
+    "ru": "Мен+я зов+ут Ив+ан, а её зов+ут +Анна.",
+    "en": "My name is Ivan, and her name is Anna.",
+    "v": "denis"
+   },
+   {
+    "ru": "У мен+я есть брат и сестр+а.",
+    "en": "I have a brother and a sister.",
+    "v": "irina"
+   },
+   {
+    "ru": "+Это мой дом, а +это мо+я маш+ина.",
+    "en": "This is my house, and this is my car.",
+    "v": "ruslan"
+   },
+   {
+    "ru": "Здр+авствуйте! Как вас зов+ут?",
+    "en": "Hello! What’s your name?",
+    "v": "dmitri"
+   }
+  ],
+  "dictation": [
+   {
+    "ru": "+Это мо+я сестр+а.",
+    "v": "denis"
+   },
+   {
+    "ru": "У теб+я есть соб+ака?",
+    "v": "irina"
+   },
+   {
+    "ru": "Ег+о зов+ут Ив+ан.",
+    "v": "ruslan"
+   }
+  ],
+  "translate": [
+   {
+    "en": "My name is Anna.",
+    "ru": "Мен+я зов+ут +Анна."
+   },
+   {
+    "en": "Do you have a car? (informal)",
+    "ru": "У теб+я есть маш+ина?"
+   },
+   {
+    "en": "This is our house.",
+    "ru": "+Это наш дом."
+   }
+  ]
+ },
+ "watch": [
+  {
+   "label": "Listening: Nastya’s slow story #53 (Luisa)",
+   "url": "https://www.youtube.com/watch?v=I4vLKZt74Vk"
+  }
+ ],
+ "grammarKnown": [],
+ "audio": {
+  "irina|Как+ой он?": "audio/0359f0a8f905.mp3",
+  "dmitri|Как+ой он?": "audio/0f18f0a23734.mp3",
+  "irina|Мой брат +очень +умный.": "audio/8bf0daeee757.mp3",
+  "dmitri|Мой брат +очень +умный.": "audio/5a0f09acb93c.mp3",
+  "denis|Мен+я зов+ут Ив+ан, а её зов+ут +Анна.": "audio/9228bd87c4e9.mp3",
+  "irina|У мен+я есть брат и сестр+а.": "audio/fbe46fc87370.mp3",
+  "ruslan|+Это мой дом, а +это мо+я маш+ина.": "audio/13d2a5ac9a70.mp3",
+  "dmitri|Здр+авствуйте! Как вас зов+ут?": "audio/b0fc3ee93f16.mp3",
+  "denis|+Это мо+я сестр+а.": "audio/3b92e35ee90a.mp3",
+  "irina|У теб+я есть соб+ака?": "audio/38e2ad111921.mp3",
+  "ruslan|Ег+о зов+ут Ив+ан.": "audio/83a523df2292.mp3",
+  "ruslan|Мен+я зов+ут +Анна.": "audio/8d4268748b24.mp3",
+  "ruslan|У теб+я есть маш+ина?": "audio/5c64f95c86e9.mp3",
+  "ruslan|+Это наш дом.": "audio/a663c6229a10.mp3"
+ }
+}

@@ -1,0 +1,305 @@
+{
+ "n": 6,
+ "id": "d06",
+ "lesson": 2,
+ "title": "Как+ой?",
+ "titleEn": "What kind?",
+ "new": [
+  {
+   "id": "kakoy",
+   "ru": "Как+ой?",
+   "en": "What kind? Which?"
+  },
+  {
+   "id": "khoroshiy",
+   "ru": "хор+оший",
+   "en": "good",
+   "note": "describes a noun; хорош+о = well, fine"
+  },
+  {
+   "id": "plokhoy",
+   "ru": "плох+ой",
+   "en": "bad"
+  },
+  {
+   "id": "bolshoy",
+   "ru": "больш+ой",
+   "en": "big"
+  },
+  {
+   "id": "malenkiy",
+   "ru": "м+аленький",
+   "en": "small"
+  },
+  {
+   "id": "novyy",
+   "ru": "н+овый",
+   "en": "new"
+  },
+  {
+   "id": "staryy",
+   "ru": "ст+арый",
+   "en": "old"
+  },
+  {
+   "id": "krasivyy",
+   "ru": "крас+ивый",
+   "en": "beautiful, handsome"
+  },
+  {
+   "id": "umnyy",
+   "ru": "+умный",
+   "en": "smart, clever"
+  },
+  {
+   "id": "ochen",
+   "ru": "+очень",
+   "en": "very"
+  }
+ ],
+ "extra": {
+  "type": "sounds",
+  "title": "Удар+ение",
+  "titleEn": "Stress",
+  "count": 10,
+  "drill": [
+   {
+    "w": "хор+оший",
+    "syl": [
+     "хо",
+     "ро",
+     "ший"
+    ],
+    "si": 1,
+    "en": "good"
+   },
+   {
+    "w": "хорош+о",
+    "syl": [
+     "хо",
+     "ро",
+     "шо"
+    ],
+    "si": 2,
+    "en": "well"
+   },
+   {
+    "w": "больш+ой",
+    "syl": [
+     "боль",
+     "шой"
+    ],
+    "si": 1,
+    "en": "big"
+   },
+   {
+    "w": "м+аленький",
+    "syl": [
+     "ма",
+     "лень",
+     "кий"
+    ],
+    "si": 0,
+    "en": "small"
+   },
+   {
+    "w": "крас+ивый",
+    "syl": [
+     "кра",
+     "си",
+     "вый"
+    ],
+    "si": 1,
+    "en": "beautiful"
+   },
+   {
+    "w": "сестр+а",
+    "syl": [
+     "сест",
+     "ра"
+    ],
+    "si": 1,
+    "en": "sister"
+   },
+   {
+    "w": "жен+а",
+    "syl": [
+     "же",
+     "на"
+    ],
+    "si": 1,
+    "en": "wife"
+   },
+   {
+    "w": "подр+уга",
+    "syl": [
+     "по",
+     "дру",
+     "га"
+    ],
+    "si": 1,
+    "en": "friend"
+   },
+   {
+    "w": "маш+ина",
+    "syl": [
+     "ма",
+     "ши",
+     "на"
+    ],
+    "si": 1,
+    "en": "car"
+   },
+   {
+    "w": "соб+ака",
+    "syl": [
+     "со",
+     "ба",
+     "ка"
+    ],
+    "si": 1,
+    "en": "dog"
+   },
+   {
+    "w": "раб+ота",
+    "syl": [
+     "ра",
+     "бо",
+     "та"
+    ],
+    "si": 1,
+    "en": "work"
+   },
+   {
+    "w": "мо+я",
+    "syl": [
+     "мо",
+     "я"
+    ],
+    "si": 1,
+    "en": "my"
+   },
+   {
+    "w": "д+ети",
+    "syl": [
+     "де",
+     "ти"
+    ],
+    "si": 0,
+    "en": "children"
+   },
+   {
+    "w": "+очень",
+    "syl": [
+     "о",
+     "чень"
+    ],
+    "si": 0,
+    "en": "very"
+   }
+  ]
+ },
+ "speak": {
+  "prompt": "Describe your home and your car",
+  "model": {
+   "ru": "У мен+я есть дом. Он больш+ой и +очень крас+ивый.",
+   "en": "I have a house. It’s big and very beautiful."
+  },
+  "rounds": [
+   45,
+   30
+  ]
+ },
+ "watch": [
+  {
+   "label": "Nastya · Day 2, adjectives part",
+   "url": "https://www.youtube.com/watch?v=Vrglf_fBbcQ&t=780s"
+  },
+  {
+   "label": "Nastya · Grammar course: noun gender",
+   "url": "https://www.youtube.com/watch?v=Ay9OgbdO4DQ"
+  }
+ ],
+ "grammarKnown": [
+  "adjectives in the masculine form: хороший, большой, новый…",
+  "хорошо (well) vs хороший (good)"
+ ],
+ "chat": {
+  "scenario": "You describe your home, your car, your cat or dog, your brother. I keep asking Какой?",
+  "goal": "describe 3 things with 2 adjectives each",
+  "targets": [
+   "Какой…? + masculine adjective (большой, маленький, новый, старый, красивый, умный)",
+   "очень + adjective"
+  ],
+  "forms": "Keep to masculine nouns this week (дом, кот, брат, муж): Мой дом большой. Feminine forms (большая) come in Week 2, so don't correct those yet."
+ },
+ "audio": {
+  "irina|Как+ой?": "audio/07c42f32a6a3.mp3",
+  "dmitri|Как+ой?": "audio/44d3e742a000.mp3",
+  "irina|хор+оший": "audio/b4f830a64360.mp3",
+  "dmitri|хор+оший": "audio/e8a970e8a9eb.mp3",
+  "irina|плох+ой": "audio/bf6f778dcd5c.mp3",
+  "dmitri|плох+ой": "audio/3587edb7445a.mp3",
+  "irina|больш+ой": "audio/79892202ea62.mp3",
+  "dmitri|больш+ой": "audio/82d9595dc660.mp3",
+  "irina|м+аленький": "audio/81f4179b8388.mp3",
+  "dmitri|м+аленький": "audio/cb19393b7938.mp3",
+  "irina|н+овый": "audio/3996000ed894.mp3",
+  "dmitri|н+овый": "audio/cdf6664df08b.mp3",
+  "irina|ст+арый": "audio/77ce52f1e799.mp3",
+  "dmitri|ст+арый": "audio/ea037dbda70c.mp3",
+  "irina|крас+ивый": "audio/2f5d532b33e9.mp3",
+  "dmitri|крас+ивый": "audio/6c87cbe863b2.mp3",
+  "irina|+умный": "audio/75272d4c4fdb.mp3",
+  "dmitri|+умный": "audio/3b7cc5587f21.mp3",
+  "irina|+очень": "audio/09841b07e204.mp3",
+  "dmitri|+очень": "audio/6b73102ccc79.mp3",
+  "denis|хор+оший": "audio/978c7507abf4.mp3",
+  "ruslan|хор+оший": "audio/84b745c30ee9.mp3",
+  "irina|хорош+о": "audio/f0cead933396.mp3",
+  "dmitri|хорош+о": "audio/a041bedd733a.mp3",
+  "denis|хорош+о": "audio/4550605cdad4.mp3",
+  "ruslan|хорош+о": "audio/24320b685a7b.mp3",
+  "denis|больш+ой": "audio/e247c0f92780.mp3",
+  "ruslan|больш+ой": "audio/b2a12e297b56.mp3",
+  "denis|м+аленький": "audio/272db464ea89.mp3",
+  "ruslan|м+аленький": "audio/4311a4238397.mp3",
+  "denis|крас+ивый": "audio/6f88fd250dba.mp3",
+  "ruslan|крас+ивый": "audio/cd16fa762ea6.mp3",
+  "irina|сестр+а": "audio/c05fb27f2ce7.mp3",
+  "dmitri|сестр+а": "audio/384c0865a120.mp3",
+  "denis|сестр+а": "audio/78d621c7f1ea.mp3",
+  "ruslan|сестр+а": "audio/511482c6acb2.mp3",
+  "irina|жен+а": "audio/97c2af5e4d36.mp3",
+  "dmitri|жен+а": "audio/d7058544e5ea.mp3",
+  "denis|жен+а": "audio/ee0826638d61.mp3",
+  "ruslan|жен+а": "audio/09b533013ac3.mp3",
+  "irina|подр+уга": "audio/e917d9d1a25c.mp3",
+  "dmitri|подр+уга": "audio/c0fba9abfcc6.mp3",
+  "denis|подр+уга": "audio/ba0760912e06.mp3",
+  "ruslan|подр+уга": "audio/d4ae783b6b61.mp3",
+  "irina|маш+ина": "audio/e81790f5b06b.mp3",
+  "dmitri|маш+ина": "audio/510d95e1e35c.mp3",
+  "denis|маш+ина": "audio/2e529f39d95f.mp3",
+  "ruslan|маш+ина": "audio/f926ef71efaf.mp3",
+  "irina|соб+ака": "audio/3025f7ef3a7d.mp3",
+  "dmitri|соб+ака": "audio/d85b68c552bf.mp3",
+  "denis|соб+ака": "audio/b3d4a572f629.mp3",
+  "ruslan|соб+ака": "audio/7103065efac2.mp3",
+  "irina|раб+ота": "audio/5d5cef902144.mp3",
+  "dmitri|раб+ота": "audio/0065b09d8cb5.mp3",
+  "denis|раб+ота": "audio/2e44cd623aa0.mp3",
+  "ruslan|раб+ота": "audio/598ac347e6d8.mp3",
+  "irina|мо+я": "audio/87f7a61b3ea2.mp3",
+  "dmitri|мо+я": "audio/f0f3b76a7384.mp3",
+  "denis|мо+я": "audio/93da81f1a6a1.mp3",
+  "ruslan|мо+я": "audio/373be9cd3e5d.mp3",
+  "irina|д+ети": "audio/f22825da06ef.mp3",
+  "dmitri|д+ети": "audio/854370b369b2.mp3",
+  "denis|д+ети": "audio/76d0f8d20871.mp3",
+  "ruslan|д+ети": "audio/d2abd2e0237e.mp3",
+  "denis|+очень": "audio/e5ef7ceea7d3.mp3",
+  "ruslan|+очень": "audio/494604eddc3a.mp3",
+  "denis|У мен+я есть дом. Он больш+ой и +очень крас+ивый.": "audio/8c7575fdc1fa.mp3"
+ }
+}

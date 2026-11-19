@@ -1,0 +1,233 @@
+{
+ "n": 4,
+ "id": "d04",
+ "lesson": 1,
+ "title": "Мой, мо+я, моё",
+ "titleEn": "My, your, our",
+ "new": [
+  {
+   "id": "moy",
+   "ru": "мой",
+   "en": "my (masculine)"
+  },
+  {
+   "id": "moya",
+   "ru": "мо+я",
+   "en": "my (feminine)"
+  },
+  {
+   "id": "moyo",
+   "ru": "моё",
+   "en": "my (neuter)",
+   "note": "ё is always stressed"
+  },
+  {
+   "id": "moi",
+   "ru": "мо+и",
+   "en": "my (plural)"
+  },
+  {
+   "id": "tvoy",
+   "ru": "твой",
+   "en": "your (informal)",
+   "note": "changes like мой: тво+я, твоё, тво+и"
+  },
+  {
+   "id": "nash",
+   "ru": "наш",
+   "en": "our",
+   "note": "н+аша, н+аше, н+аши"
+  },
+  {
+   "id": "vash",
+   "ru": "ваш",
+   "en": "your (formal or plural)",
+   "note": "в+аша, в+аше, в+аши"
+  },
+  {
+   "id": "ikh",
+   "ru": "их",
+   "en": "their",
+   "note": "never changes; ег+о and её don’t change either"
+  },
+  {
+   "id": "deti",
+   "ru": "д+ети",
+   "en": "children"
+  },
+  {
+   "id": "imya",
+   "ru": "+имя",
+   "en": "name (first name)",
+   "note": "neuter: моё +имя"
+  }
+ ],
+ "extra": {
+  "type": "grammar",
+  "title": "“My” matches the noun",
+  "titleEn": "My, your, our",
+  "ru": "мой · мо+я · моё · мо+и",
+  "table": [
+   [
+    "мой",
+    "брат, п+апа",
+    "masculine"
+   ],
+   [
+    "мо+я",
+    "сестр+а, м+ама",
+    "feminine (-а)"
+   ],
+   [
+    "моё",
+    "+имя",
+    "neuter (-о, -е, -мя)"
+   ],
+   [
+    "мо+и",
+    "д+ети",
+    "plural"
+   ]
+  ],
+  "note": "твой, наш, ваш change the same way. п+апа ends in -а but is a man, so: мой п+апа.",
+  "input": [
+   {
+    "ru": "+Это мо+я…",
+    "q": "Which word comes next?",
+    "opts": [
+     "сестр+а",
+     "брат",
+     "+имя"
+    ],
+    "a": 0,
+    "why": "мо+я goes with feminine nouns"
+   },
+   {
+    "ru": "+Это моё…",
+    "q": "Which word comes next?",
+    "opts": [
+     "+имя",
+     "м+ама",
+     "сын"
+    ],
+    "a": 0,
+    "why": "моё goes with neuter nouns"
+   },
+   {
+    "ru": "+Это мо+и…",
+    "q": "Which word comes next?",
+    "opts": [
+     "д+ети",
+     "п+апа",
+     "жен+а"
+    ],
+    "a": 0,
+    "why": "мо+и is plural"
+   },
+   {
+    "ru": "+Это мой…",
+    "q": "Which word comes next?",
+    "opts": [
+     "п+апа",
+     "м+ама",
+     "+имя"
+    ],
+    "a": 0,
+    "why": "п+апа is masculine, even with -а"
+   }
+  ],
+  "produce": [
+   {
+    "en": "my sister",
+    "ru": "мо+я сестр+а",
+    "hint": "сестр+а ends in -а → feminine"
+   },
+   {
+    "en": "our dad",
+    "ru": "наш п+апа",
+    "hint": "п+апа is masculine"
+   },
+   {
+    "en": "your children (formal)",
+    "ru": "в+аши д+ети",
+    "hint": "д+ети is plural: ваш → в+аши"
+   },
+   {
+    "en": "my name",
+    "ru": "моё +имя",
+    "hint": "+имя is neuter"
+   },
+   {
+    "en": "your wife (informal)",
+    "ru": "тво+я жен+а",
+    "hint": "жен+а is feminine: твой → тво+я"
+   }
+  ]
+ },
+ "speak": {
+  "prompt": "Introduce your family: my mum, my dad, my children",
+  "model": {
+   "ru": "+Это мо+я м+ама, а +это мой п+апа. А +это мо+и д+ети.",
+   "en": "This is my mum, and this is my dad. And these are my children."
+  },
+  "rounds": [
+   45,
+   30
+  ]
+ },
+ "watch": [
+  {
+   "label": "Nastya · “My” in all genders",
+   "url": "https://www.youtube.com/watch?v=zK_5kAJCE2Y"
+  },
+  {
+   "label": "Nastya · Personal vs possessive pronouns",
+   "url": "https://www.youtube.com/watch?v=vJEKihynYlM"
+  }
+ ],
+ "grammarKnown": [
+  "мой / моя / моё / мои agree with the noun (also твой, наш, ваш)",
+  "его, её, их never change"
+ ],
+ "chat": {
+  "scenario": "The same photo, now with мой / моя: I guess who is who, you correct me (Это твой брат? — Нет, это мой муж).",
+  "goal": "use мой / моя / мои at least 4 times",
+  "targets": [
+   "мой / моя / мои + family word",
+   "твой / твоя in questions"
+  ],
+  "forms": "моя мама, моя сестра, мой папа (папа is masculine), мой брат, мои дети."
+ },
+ "audio": {
+  "irina|мой": "audio/72ae713cc82d.mp3",
+  "dmitri|мой": "audio/b5b314ba9da7.mp3",
+  "irina|мо+я": "audio/87f7a61b3ea2.mp3",
+  "dmitri|мо+я": "audio/f0f3b76a7384.mp3",
+  "irina|моё": "audio/d9ef19d94a1b.mp3",
+  "dmitri|моё": "audio/b9a4d99117df.mp3",
+  "irina|мо+и": "audio/5de67019ac93.mp3",
+  "dmitri|мо+и": "audio/2badb89a7587.mp3",
+  "irina|твой": "audio/a67593f1d9a1.mp3",
+  "dmitri|твой": "audio/ff75f0f2444c.mp3",
+  "irina|наш": "audio/448b2dfa3c91.mp3",
+  "dmitri|наш": "audio/5671749ced1b.mp3",
+  "irina|ваш": "audio/8d5d7303967b.mp3",
+  "dmitri|ваш": "audio/51aff396938d.mp3",
+  "irina|их": "audio/2b096247c30b.mp3",
+  "dmitri|их": "audio/8a6f754bc530.mp3",
+  "irina|д+ети": "audio/f22825da06ef.mp3",
+  "dmitri|д+ети": "audio/854370b369b2.mp3",
+  "irina|+имя": "audio/12489181ab6a.mp3",
+  "dmitri|+имя": "audio/9cfa0fbc130f.mp3",
+  "ruslan|+Это мо+я…": "audio/c3e327311567.mp3",
+  "ruslan|+Это моё…": "audio/a5f31d85e6ab.mp3",
+  "ruslan|+Это мо+и…": "audio/8712ef372674.mp3",
+  "ruslan|+Это мой…": "audio/a92e36079461.mp3",
+  "ruslan|мо+я сестр+а": "audio/aa652714e01c.mp3",
+  "ruslan|наш п+апа": "audio/c1fb15c469a6.mp3",
+  "ruslan|в+аши д+ети": "audio/f6dc4467f4ad.mp3",
+  "ruslan|моё +имя": "audio/7a3aa4b1852f.mp3",
+  "ruslan|тво+я жен+а": "audio/f2c826cefee9.mp3",
+  "denis|+Это мо+я м+ама, а +это мой п+апа. А +это мо+и д+ети.": "audio/67beefb5cf9d.mp3"
+ }
+}

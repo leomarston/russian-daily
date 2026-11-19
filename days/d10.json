@@ -1,0 +1,249 @@
+{
+ "n": 10,
+ "id": "d10",
+ "lesson": 4,
+ "title": "Говор+ить",
+ "titleEn": "Speaking languages",
+ "new": [
+  {
+   "id": "govorit",
+   "ru": "говор+ить",
+   "en": "to speak, to talk"
+  },
+  {
+   "id": "ya-govoryu-po-russki",
+   "ru": "Я говор+ю по-р+усски.",
+   "en": "I speak Russian.",
+   "note": "по-р+усски = “in Russian”, no capital letter"
+  },
+  {
+   "id": "vy-govorite-po-angliyski",
+   "ru": "Вы говор+ите по-англ+ийски?",
+   "en": "Do you speak English? (formal)"
+  },
+  {
+   "id": "po-nemetski",
+   "ru": "по-н+емецки",
+   "en": "in German"
+  },
+  {
+   "id": "nemnogo",
+   "ru": "немн+ого",
+   "en": "a little",
+   "note": "Я немн+ого говор+ю по-р+усски."
+  },
+  {
+   "id": "nemets",
+   "ru": "н+емец",
+   "en": "German (a man)"
+  },
+  {
+   "id": "nemka",
+   "ru": "н+емка",
+   "en": "German (a woman)"
+  },
+  {
+   "id": "pravilno",
+   "ru": "Пр+авильно!",
+   "en": "Right! / Correct!",
+   "note": "непр+авильно = wrong"
+  },
+  {
+   "id": "poka",
+   "ru": "Пок+а!",
+   "en": "Bye!",
+   "note": "friends only; your boss gets До свид+ания!"
+  },
+  {
+   "id": "devushka",
+   "ru": "д+евушка",
+   "en": "young woman; girlfriend"
+  },
+  {
+   "id": "vsegda",
+   "ru": "всегд+а",
+   "en": "always"
+  }
+ ],
+ "extra": {
+  "type": "grammar",
+  "title": "Говор+ить",
+  "titleEn": "I speak, you speak",
+  "ru": "говор+ить → я говор+ю, ты говор+ишь…",
+  "table": [
+   [
+    "я",
+    "говор+ю",
+    "I speak"
+   ],
+   [
+    "ты",
+    "говор+ишь",
+    "you speak (a friend)"
+   ],
+   [
+    "он, он+а",
+    "говор+ит",
+    "he / she speaks"
+   ],
+   [
+    "мы",
+    "говор+им",
+    "we speak"
+   ],
+   [
+    "вы",
+    "говор+ите",
+    "you speak (formal or plural)"
+   ],
+   [
+    "он+и",
+    "говор+ят",
+    "they speak"
+   ]
+  ],
+  "note": "The ending tells you who speaks, so Russians often drop the pronoun: Говор+ишь по-р+усски? Languages: по-р+усски, по-англ+ийски, по-н+емецки (lowercase, with по-). “Not” goes before the verb: Я не говор+ю по-н+емецки.",
+  "input": [
+   {
+    "ru": "Говор+ишь по-англ+ийски?",
+    "q": "Who is being asked?",
+    "opts": [
+     "you (a friend)",
+     "a group of people",
+     "he or she"
+    ],
+    "a": 0,
+    "why": "-ишь = ты"
+   },
+   {
+    "ru": "Говор+ят по-р+усски.",
+    "q": "Who speaks Russian?",
+    "opts": [
+     "they",
+     "we",
+     "I"
+    ],
+    "a": 0,
+    "why": "-ят = он+и"
+   },
+   {
+    "ru": "Немн+ого говор+им по-н+емецки.",
+    "q": "Who speaks a little German?",
+    "opts": [
+     "we",
+     "you (formal)",
+     "she"
+    ],
+    "a": 0,
+    "why": "-им = мы"
+   },
+   {
+    "ru": "Он+а не говор+ит по-англ+ийски.",
+    "q": "What does it say?",
+    "opts": [
+     "She doesn’t speak English.",
+     "She speaks English.",
+     "They don’t speak English."
+    ],
+    "a": 0,
+    "why": "не before the verb = not; -ит = он / он+а"
+   }
+  ],
+  "produce": [
+   {
+    "en": "Do you speak German? (to a friend)",
+    "ru": "Ты говор+ишь по-н+емецки?",
+    "hint": "ты → -ишь"
+   },
+   {
+    "en": "She speaks English.",
+    "ru": "Он+а говор+ит по-англ+ийски.",
+    "hint": "он+а → -ит"
+   },
+   {
+    "en": "We speak Russian.",
+    "ru": "Мы говор+им по-р+усски.",
+    "hint": "мы → -им"
+   },
+   {
+    "en": "They don’t speak German.",
+    "ru": "Он+и не говор+ят по-н+емецки.",
+    "hint": "он+и → -ят; не goes before the verb"
+   },
+   {
+    "en": "Do you speak Russian? (to a teacher)",
+    "ru": "Вы говор+ите по-р+усски?",
+    "hint": "teacher → вы → -ите"
+   }
+  ]
+ },
+ "speak": {
+  "prompt": "Say which languages you speak, and how well",
+  "model": {
+   "ru": "Я говор+ю по-англ+ийски. И немн+ого говор+ю по-р+усски.",
+   "en": "I speak English. And I speak a little Russian."
+  },
+  "rounds": [
+   45,
+   30
+  ]
+ },
+ "watch": [
+  {
+   "label": "Nastya · Grammar course Day 25: говорить",
+   "url": "https://www.youtube.com/watch?v=ODNZrNhqbSY"
+  },
+  {
+   "label": "Nastya · Day 4, verb of the day",
+   "url": "https://www.youtube.com/watch?v=kSGHLWYcdqQ&t=258s"
+  }
+ ],
+ "grammarKnown": [
+  "говорить: говорю, говоришь, говорит, говорим, говорите, говорят",
+  "по-русски, по-английски, по-немецки",
+  "не before the verb = not"
+ ],
+ "chat": {
+  "scenario": "A language café. I play three people in turn (a German woman, an American man, the café owner); we ask each other which languages we speak.",
+  "goal": "say which languages you speak and how well, and ask 3 people the same",
+  "targets": [
+   "говорить endings: я говорю, ты говоришь, он/она говорит, вы говорите",
+   "по-русски / по-английски / по-немецки"
+  ],
+  "forms": "Я говорю по-русски (not \"я говорить\", not \"говорю русский\"). Ты говоришь…? Вы говорите…? (formal). Я не говорю по-немецки. Correct only говорить endings and по- forms."
+ },
+ "audio": {
+  "irina|говор+ить": "audio/5bcb578a864a.mp3",
+  "dmitri|говор+ить": "audio/33c8f2b95193.mp3",
+  "irina|Я говор+ю по-р+усски.": "audio/50b7767066cb.mp3",
+  "dmitri|Я говор+ю по-р+усски.": "audio/1399d39ce9a6.mp3",
+  "irina|Вы говор+ите по-англ+ийски?": "audio/ff8135e99577.mp3",
+  "dmitri|Вы говор+ите по-англ+ийски?": "audio/d17bf7e8c4af.mp3",
+  "irina|по-н+емецки": "audio/186d1e2260fe.mp3",
+  "dmitri|по-н+емецки": "audio/db8b4032aa4a.mp3",
+  "irina|немн+ого": "audio/8188cbf33ce9.mp3",
+  "dmitri|немн+ого": "audio/97b5dedc34af.mp3",
+  "irina|н+емец": "audio/7e430fa8cd0d.mp3",
+  "dmitri|н+емец": "audio/be51ebc51be8.mp3",
+  "irina|н+емка": "audio/6c5ae2daa061.mp3",
+  "dmitri|н+емка": "audio/ade29a88ff8f.mp3",
+  "irina|Пр+авильно!": "audio/8c09932b7261.mp3",
+  "dmitri|Пр+авильно!": "audio/37f7b7ae9444.mp3",
+  "irina|Пок+а!": "audio/64756866c9d2.mp3",
+  "dmitri|Пок+а!": "audio/eaa50bfaffb8.mp3",
+  "irina|д+евушка": "audio/cf4008d3ef2a.mp3",
+  "dmitri|д+евушка": "audio/16bab29ff6af.mp3",
+  "irina|всегд+а": "audio/3d42677f69fb.mp3",
+  "dmitri|всегд+а": "audio/21fb575dbe81.mp3",
+  "ruslan|Говор+ишь по-англ+ийски?": "audio/7c9cdaf26d0b.mp3",
+  "ruslan|Говор+ят по-р+усски.": "audio/55f3e9198117.mp3",
+  "ruslan|Немн+ого говор+им по-н+емецки.": "audio/ba4c94652e04.mp3",
+  "ruslan|Он+а не говор+ит по-англ+ийски.": "audio/ab1328ae046f.mp3",
+  "ruslan|Ты говор+ишь по-н+емецки?": "audio/1e75ed0347a9.mp3",
+  "ruslan|Он+а говор+ит по-англ+ийски.": "audio/ddbbd06571b3.mp3",
+  "ruslan|Мы говор+им по-р+усски.": "audio/33e23b6f12ce.mp3",
+  "ruslan|Он+и не говор+ят по-н+емецки.": "audio/b1824b5cf7a9.mp3",
+  "ruslan|Вы говор+ите по-р+усски?": "audio/def5a2222147.mp3",
+  "denis|Я говор+ю по-англ+ийски. И немн+ого говор+ю по-р+усски.": "audio/eb836dfd72ba.mp3"
+ }
+}

@@ -1,0 +1,267 @@
+{
+ "n": 1,
+ "id": "d01",
+ "lesson": 1,
+ "title": "Знак+омство",
+ "titleEn": "Meeting people",
+ "new": [
+  {
+   "id": "privet",
+   "ru": "Прив+ет!",
+   "en": "Hi! (informal)"
+  },
+  {
+   "id": "zdravstvuyte",
+   "ru": "Здр+авствуйте!",
+   "en": "Hello! (formal)",
+   "note": "The first в is silent"
+  },
+  {
+   "id": "kak-dela",
+   "ru": "Как дел+а?",
+   "en": "How are you?"
+  },
+  {
+   "id": "khorosho",
+   "ru": "Хорош+о.",
+   "en": "Good. / Fine."
+  },
+  {
+   "id": "normalno",
+   "ru": "Норм+ально.",
+   "en": "OK. / Not bad."
+  },
+  {
+   "id": "plokho",
+   "ru": "Пл+охо.",
+   "en": "Bad. / Not well."
+  },
+  {
+   "id": "kak-tebya-zovut",
+   "ru": "Как теб+я зов+ут?",
+   "en": "What’s your name? (informal)"
+  },
+  {
+   "id": "kak-vas-zovut",
+   "ru": "Как вас зов+ут?",
+   "en": "What’s your name? (formal)"
+  },
+  {
+   "id": "menya-zovut",
+   "ru": "Мен+я зов+ут…",
+   "en": "My name is…"
+  },
+  {
+   "id": "a-tebya",
+   "ru": "А теб+я?",
+   "en": "And you? (your name)"
+  },
+  {
+   "id": "spasibo",
+   "ru": "Спас+ибо.",
+   "en": "Thank you."
+  }
+ ],
+ "extra": {
+  "type": "sounds",
+  "title": "Удар+ение",
+  "titleEn": "Stress",
+  "count": 10,
+  "drill": [
+   {
+    "w": "прив+ет",
+    "syl": [
+     "при",
+     "вет"
+    ],
+    "si": 1,
+    "en": "hi"
+   },
+   {
+    "w": "здр+авствуйте",
+    "syl": [
+     "здрав",
+     "ствуй",
+     "те"
+    ],
+    "si": 0,
+    "en": "hello"
+   },
+   {
+    "w": "хорош+о",
+    "syl": [
+     "хо",
+     "ро",
+     "шо"
+    ],
+    "si": 2,
+    "en": "good"
+   },
+   {
+    "w": "норм+ально",
+    "syl": [
+     "нор",
+     "маль",
+     "но"
+    ],
+    "si": 1,
+    "en": "OK"
+   },
+   {
+    "w": "пл+охо",
+    "syl": [
+     "пло",
+     "хо"
+    ],
+    "si": 0,
+    "en": "bad"
+   },
+   {
+    "w": "спас+ибо",
+    "syl": [
+     "спа",
+     "си",
+     "бо"
+    ],
+    "si": 1,
+    "en": "thank you"
+   },
+   {
+    "w": "мен+я",
+    "syl": [
+     "ме",
+     "ня"
+    ],
+    "si": 1,
+    "en": "me"
+   },
+   {
+    "w": "теб+я",
+    "syl": [
+     "те",
+     "бя"
+    ],
+    "si": 1,
+    "en": "you"
+   },
+   {
+    "w": "зов+ут",
+    "syl": [
+     "зо",
+     "вут"
+    ],
+    "si": 1,
+    "en": "(they) call"
+   },
+   {
+    "w": "дел+а",
+    "syl": [
+     "де",
+     "ла"
+    ],
+    "si": 1,
+    "en": "things"
+   }
+  ]
+ },
+ "speak": {
+  "prompt": "Greet, say your name, ask theirs, ask how they are",
+  "model": {
+   "ru": "Прив+ет! Мен+я зов+ут Ив+ан. А теб+я? Как дел+а?",
+   "en": "Hi! My name is Ivan. And you? How are you?"
+  },
+  "rounds": [
+   45,
+   30
+  ]
+ },
+ "watch": [
+  {
+   "label": "Nastya · Day 1, phrases part",
+   "url": "https://www.youtube.com/watch?v=eEz9kqbn2Vw&t=1080s"
+  },
+  {
+   "label": "Comprehensible Russian · Beginner 0 videos",
+   "url": "https://www.youtube.com/@ComprehensibleRussian/playlists"
+  }
+ ],
+ "grammarKnown": [
+  "Привет (informal) vs Здравствуйте (formal)",
+  "Меня зовут… / Как тебя (вас) зовут?"
+ ],
+ "chat": {
+  "scenario": "A party. You arrive; I am Мари́на, a friendly guest your age.",
+  "goal": "greet, give your name, ask mine, ask how I am",
+  "targets": [
+   "Привет (informal) / Здравствуйте (formal)",
+   "Меня зовут… / Как тебя зовут? / А тебя?"
+  ],
+  "forms": "Меня зовут… (not \"Я зовут\"). Как тебя зовут? to a friend, Как вас зовут? to a stranger.",
+  "twist": "If time is left, become an older stranger: the learner must switch to Здравствуйте and Как вас зовут?"
+ },
+ "audio": {
+  "irina|Прив+ет!": "audio/6973bcf2b8f6.mp3",
+  "dmitri|Прив+ет!": "audio/02d426da601b.mp3",
+  "irina|Здр+авствуйте!": "audio/f78c91cf16e1.mp3",
+  "dmitri|Здр+авствуйте!": "audio/fea852cbeb18.mp3",
+  "irina|Как дел+а?": "audio/38bd3b1839c6.mp3",
+  "dmitri|Как дел+а?": "audio/a0191c29a1d5.mp3",
+  "irina|Хорош+о.": "audio/a6e7bdb6943c.mp3",
+  "dmitri|Хорош+о.": "audio/773ab97557ae.mp3",
+  "irina|Норм+ально.": "audio/e6e4cbcc5cfb.mp3",
+  "dmitri|Норм+ально.": "audio/7e9ce1f01f3a.mp3",
+  "irina|Пл+охо.": "audio/1dedfda4452f.mp3",
+  "dmitri|Пл+охо.": "audio/f7c90c3813be.mp3",
+  "irina|Как теб+я зов+ут?": "audio/4ff6e6e7f54a.mp3",
+  "dmitri|Как теб+я зов+ут?": "audio/d64394e147c1.mp3",
+  "irina|Как вас зов+ут?": "audio/2f60cb04509a.mp3",
+  "dmitri|Как вас зов+ут?": "audio/08d355304b5b.mp3",
+  "irina|Мен+я зов+ут…": "audio/88adbba59253.mp3",
+  "dmitri|Мен+я зов+ут…": "audio/d1f72b8ff2f4.mp3",
+  "irina|А теб+я?": "audio/f0d70e3a1a14.mp3",
+  "dmitri|А теб+я?": "audio/69b6663cc79b.mp3",
+  "irina|Спас+ибо.": "audio/ccbb36dd2222.mp3",
+  "dmitri|Спас+ибо.": "audio/a08af015cb74.mp3",
+  "irina|прив+ет": "audio/d51a928f417f.mp3",
+  "dmitri|прив+ет": "audio/94a4347263c9.mp3",
+  "denis|прив+ет": "audio/dc35ff8b3d77.mp3",
+  "ruslan|прив+ет": "audio/7318d1636135.mp3",
+  "irina|здр+авствуйте": "audio/86bb24021bb5.mp3",
+  "dmitri|здр+авствуйте": "audio/2fdfd5d68af9.mp3",
+  "denis|здр+авствуйте": "audio/8ef32a35604f.mp3",
+  "ruslan|здр+авствуйте": "audio/453b3adb16bf.mp3",
+  "irina|хорош+о": "audio/f0cead933396.mp3",
+  "dmitri|хорош+о": "audio/a041bedd733a.mp3",
+  "denis|хорош+о": "audio/4550605cdad4.mp3",
+  "ruslan|хорош+о": "audio/24320b685a7b.mp3",
+  "irina|норм+ально": "audio/9aed083eca49.mp3",
+  "dmitri|норм+ально": "audio/30cdfb551517.mp3",
+  "denis|норм+ально": "audio/32718c377d5d.mp3",
+  "ruslan|норм+ально": "audio/2daa585dc541.mp3",
+  "irina|пл+охо": "audio/b83ee16420f1.mp3",
+  "dmitri|пл+охо": "audio/90e806bc19ae.mp3",
+  "denis|пл+охо": "audio/688f8c526fb7.mp3",
+  "ruslan|пл+охо": "audio/f54dd490bf27.mp3",
+  "irina|спас+ибо": "audio/b214095f2163.mp3",
+  "dmitri|спас+ибо": "audio/d082dbb1366e.mp3",
+  "denis|спас+ибо": "audio/c2e033e18404.mp3",
+  "ruslan|спас+ибо": "audio/4e4a74238b4c.mp3",
+  "irina|мен+я": "audio/86f99d41b033.mp3",
+  "dmitri|мен+я": "audio/cf526495003a.mp3",
+  "denis|мен+я": "audio/c55a1008d6a6.mp3",
+  "ruslan|мен+я": "audio/2a9470baf568.mp3",
+  "irina|теб+я": "audio/262ed35e35b0.mp3",
+  "dmitri|теб+я": "audio/1f08d871f1e6.mp3",
+  "denis|теб+я": "audio/26923b17fe90.mp3",
+  "ruslan|теб+я": "audio/309713aebdcb.mp3",
+  "irina|зов+ут": "audio/5cf6b6ccf92a.mp3",
+  "dmitri|зов+ут": "audio/11f37750d1c3.mp3",
+  "denis|зов+ут": "audio/6803998363e0.mp3",
+  "ruslan|зов+ут": "audio/814250cd0c0a.mp3",
+  "irina|дел+а": "audio/dbc9f09c1bcc.mp3",
+  "dmitri|дел+а": "audio/1e094578c0e6.mp3",
+  "denis|дел+а": "audio/14e8dde2637d.mp3",
+  "ruslan|дел+а": "audio/12e6ff58f361.mp3",
+  "denis|Прив+ет! Мен+я зов+ут Ив+ан. А теб+я? Как дел+а?": "audio/aea3c1954cb9.mp3"
+ }
+}

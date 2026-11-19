@@ -1,0 +1,265 @@
+{
+ "n": 8,
+ "id": "d08",
+ "lesson": 2,
+ "title": "Как+ая?",
+ "titleEn": "Matching adjectives",
+ "new": [
+  {
+   "id": "chat-eyo-tozhe-zovut",
+   "ru": "Её т+оже зов+ут…",
+   "en": "Her name is also…",
+   "note": "from your chat, 2026-11-18"
+  },
+  {
+   "id": "chat-eto-moy-papa",
+   "ru": "+Это мой п+апа.",
+   "en": "This is my dad. (папа takes мой)",
+   "note": "from your chat, 2026-11-18"
+  },
+  {
+   "id": "molodoy",
+   "ru": "молод+ой",
+   "en": "young"
+  },
+  {
+   "id": "vysokiy",
+   "ru": "выс+окий",
+   "en": "tall; high"
+  },
+  {
+   "id": "slozhnyy",
+   "ru": "сл+ожный",
+   "en": "difficult, complicated"
+  },
+  {
+   "id": "slovo",
+   "ru": "сл+ово",
+   "en": "word"
+  },
+  {
+   "id": "vopros",
+   "ru": "вопр+ос",
+   "en": "question"
+  },
+  {
+   "id": "muzhchina",
+   "ru": "мужч+ина",
+   "en": "man",
+   "note": "ends in -а but it’s a “he” word, like п+апа; жч is said щ"
+  },
+  {
+   "id": "russkiy",
+   "ru": "р+усский",
+   "en": "Russian (a man); Russian (adjective)"
+  },
+  {
+   "id": "russkaya",
+   "ru": "р+усская",
+   "en": "Russian (a woman)"
+  },
+  {
+   "id": "segodnya",
+   "ru": "сег+одня",
+   "en": "today",
+   "note": "г is said в: сев+одня"
+  },
+  {
+   "id": "pozhaluysta",
+   "ru": "Пож+алуйста.",
+   "en": "Please. / You’re welcome.",
+   "note": "in fast speech: пож+алуста"
+  },
+  {
+   "id": "ili",
+   "ru": "+или",
+   "en": "or"
+  }
+ ],
+ "extra": {
+  "type": "grammar",
+  "title": "Как+ая?",
+  "titleEn": "Adjectives copy the noun",
+  "ru": "Как+ой дом? Как+ая маш+ина? Как+ое сл+ово? Как+ие д+ети?",
+  "table": [
+   [
+    "“he” words: дом, п+апа",
+    "н+овый дом, молод+ой п+апа",
+    "-ый · -ой · -ий"
+   ],
+   [
+    "“she” words: маш+ина, м+ама",
+    "н+овая маш+ина, молод+ая м+ама",
+    "-ая"
+   ],
+   [
+    "“it” words: сл+ово, +имя",
+    "н+овое сл+ово, сл+ожное +имя",
+    "-ое"
+   ],
+   [
+    "plural: д+ети",
+    "н+овые, молод+ые, р+усские д+ети",
+    "-ые · -ие"
+   ]
+  ],
+  "note": "The adjective takes the ending of the noun’s group, like мой / мо+я / моё / мо+и. Words in -а are usually “she”, but п+апа and мужч+ина are “he” because they are men. After к, г, х, ш, ж write и, not ы: р+усские, хор+ошие, м+аленькие.",
+  "input": [
+   {
+    "ru": "+Очень крас+ивая!",
+    "q": "What is so beautiful?",
+    "opts": [
+     "the car (маш+ина)",
+     "the house (дом)",
+     "the children (д+ети)"
+    ],
+    "a": 0,
+    "why": "-ая goes with “she” words like маш+ина"
+   },
+   {
+    "ru": "Сл+ожное!",
+    "q": "What is difficult?",
+    "opts": [
+     "the word (сл+ово)",
+     "the question (вопр+ос)",
+     "the work (раб+ота)"
+    ],
+    "a": 0,
+    "why": "-ое goes with “it” words like сл+ово; a difficult question would be сл+ожный"
+   },
+   {
+    "ru": "Он+и молод+ые.",
+    "q": "Who is young?",
+    "opts": [
+     "several people",
+     "one man",
+     "one woman"
+    ],
+    "a": 0,
+    "why": "-ые = plural"
+   },
+   {
+    "ru": "Р+усская.",
+    "q": "Who could this be about?",
+    "opts": [
+     "Anna",
+     "Ivan",
+     "Anna and Ivan"
+    ],
+    "a": 0,
+    "why": "-ая: a woman. Ivan is р+усский; both together are р+усские"
+   },
+   {
+    "ru": "М+ама молод+ая, а п+апа молод+ой.",
+    "q": "Who is young?",
+    "opts": [
+     "both of them",
+     "only Mum",
+     "only Dad"
+    ],
+    "a": 0,
+    "why": "the same word with two endings: молод+ая for Mum, молод+ой for Dad"
+   }
+  ],
+  "produce": [
+   {
+    "en": "Mum is young.",
+    "ru": "М+ама молод+ая.",
+    "hint": "м+ама is a “she” word → -ая"
+   },
+   {
+    "en": "Dad is tall.",
+    "ru": "П+апа выс+окий.",
+    "hint": "п+апа ends in -а, but he’s a man → -ий"
+   },
+   {
+    "en": "My children are smart.",
+    "ru": "Мо+и д+ети +умные.",
+    "hint": "plural → -ые"
+   },
+   {
+    "en": "This is a difficult word.",
+    "ru": "+Это сл+ожное сл+ово.",
+    "hint": "сл+ово is an “it” word → -ое"
+   },
+   {
+    "en": "She is Russian.",
+    "ru": "Он+а р+усская.",
+    "hint": "a woman → р+усская"
+   }
+  ]
+ },
+ "speak": {
+  "prompt": "Describe two people in your family",
+  "model": {
+   "ru": "Мо+я м+ама молод+ая и +умная. А мой п+апа выс+окий.",
+   "en": "My mum is young and smart. And my dad is tall."
+  },
+  "rounds": [
+   45,
+   30
+  ]
+ },
+ "watch": [
+  {
+   "label": "Nastya · Adjective endings -ая, -ый, -ое, -ые",
+   "url": "https://www.youtube.com/watch?v=HCJRQljnuew"
+  },
+  {
+   "label": "Nastya · Day 2, adjectives part",
+   "url": "https://www.youtube.com/watch?v=Vrglf_fBbcQ&t=642s"
+  }
+ ],
+ "grammarKnown": [
+  "adjective endings copy the noun: -ый/-ой/-ий (he), -ая (she), -ое (it), -ые/-ие (plural)",
+  "папа and мужчина take “he” endings"
+ ],
+ "chat": {
+  "scenario": "We swap family photos. I ask Какой…? / Какая…? / Какие…? about each person: your mum, dad, brother, sister, friend, children.",
+  "goal": "describe 4 people with the right adjective ending",
+  "targets": [
+   "the adjective ending matches the noun: молодой брат / молодая сестра / молодые дети",
+   "папа and мужчина take masculine endings"
+  ],
+  "forms": "Мама молодая (not \"молодой\"). Папа высокий (папа is masculine). Мои дети умные (plural -ые). Русская for a woman, русский for a man. Correct only adjective endings."
+ },
+ "audio": {
+  "irina|Её т+оже зов+ут…": "audio/939580a3755c.mp3",
+  "dmitri|Её т+оже зов+ут…": "audio/b511b65b2009.mp3",
+  "irina|+Это мой п+апа.": "audio/53113d888c7f.mp3",
+  "dmitri|+Это мой п+апа.": "audio/e8b7165bb1de.mp3",
+  "irina|молод+ой": "audio/12722d850b4c.mp3",
+  "dmitri|молод+ой": "audio/a8278884ec16.mp3",
+  "irina|выс+окий": "audio/ef158a1a20a6.mp3",
+  "dmitri|выс+окий": "audio/d445d13403cb.mp3",
+  "irina|сл+ожный": "audio/b893d8009683.mp3",
+  "dmitri|сл+ожный": "audio/b79d8a5b6e55.mp3",
+  "irina|сл+ово": "audio/c6327d51b1fa.mp3",
+  "dmitri|сл+ово": "audio/dec07b9ad2df.mp3",
+  "irina|вопр+ос": "audio/afca7a52f539.mp3",
+  "dmitri|вопр+ос": "audio/f9914c476bb9.mp3",
+  "irina|мужч+ина": "audio/6fcd46409e87.mp3",
+  "dmitri|мужч+ина": "audio/8dc9417002c5.mp3",
+  "irina|р+усский": "audio/9995a3e8a259.mp3",
+  "dmitri|р+усский": "audio/fb6601e44302.mp3",
+  "irina|р+усская": "audio/a5c48003daff.mp3",
+  "dmitri|р+усская": "audio/cd48fecd802e.mp3",
+  "irina|сег+одня": "audio/411d67ec2e95.mp3",
+  "dmitri|сег+одня": "audio/817d7b244e7a.mp3",
+  "irina|Пож+алуйста.": "audio/00784a4718c4.mp3",
+  "dmitri|Пож+алуйста.": "audio/bbdb871b1a6c.mp3",
+  "irina|+или": "audio/5463d8a99759.mp3",
+  "dmitri|+или": "audio/89cf3a2a2329.mp3",
+  "ruslan|+Очень крас+ивая!": "audio/7f03d54f3d23.mp3",
+  "ruslan|Сл+ожное!": "audio/7450d4692dcc.mp3",
+  "ruslan|Он+и молод+ые.": "audio/e62fa4535b8b.mp3",
+  "ruslan|Р+усская.": "audio/e3c7150c55af.mp3",
+  "ruslan|М+ама молод+ая, а п+апа молод+ой.": "audio/6b0ba1df457c.mp3",
+  "ruslan|М+ама молод+ая.": "audio/914b93129926.mp3",
+  "ruslan|П+апа выс+окий.": "audio/4700f6bc6ef4.mp3",
+  "ruslan|Мо+и д+ети +умные.": "audio/448a28272c1c.mp3",
+  "ruslan|+Это сл+ожное сл+ово.": "audio/7e5cabe06a26.mp3",
+  "ruslan|Он+а р+усская.": "audio/1fb054192fe5.mp3",
+  "denis|Мо+я м+ама молод+ая и +умная. А мой п+апа выс+окий.": "audio/386b8b030bab.mp3"
+ }
+}

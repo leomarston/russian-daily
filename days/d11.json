@@ -1,0 +1,342 @@
+{
+ "n": 11,
+ "id": "d11",
+ "lesson": 4,
+ "title": "Г+ород",
+ "titleEn": "City and weather",
+ "new": [
+  {
+   "id": "anglichanin",
+   "ru": "англич+анин",
+   "en": "Englishman"
+  },
+  {
+   "id": "anglichanka",
+   "ru": "англич+анка",
+   "en": "Englishwoman"
+  },
+  {
+   "id": "lyudi",
+   "ru": "л+юди",
+   "en": "people",
+   "note": "one person = челов+ек"
+  },
+  {
+   "id": "rebyonok",
+   "ru": "ребёнок",
+   "en": "child",
+   "note": "ё is always stressed; plural: д+ети"
+  },
+  {
+   "id": "semya",
+   "ru": "семь+я",
+   "en": "family",
+   "note": "мо+я семь+я"
+  },
+  {
+   "id": "bogatyy",
+   "ru": "бог+атый",
+   "en": "rich",
+   "note": "unstressed о sounds like а: баг+атый"
+  },
+  {
+   "id": "gorod",
+   "ru": "г+ород",
+   "en": "city, town"
+  },
+  {
+   "id": "pogoda",
+   "ru": "пог+ода",
+   "en": "weather",
+   "note": "a “she” word: хор+ошая пог+ода"
+  },
+  {
+   "id": "zavtra",
+   "ru": "з+автра",
+   "en": "tomorrow"
+  },
+  {
+   "id": "ne-mozhet-byt",
+   "ru": "Не м+ожет быть!",
+   "en": "No way! / It can’t be!"
+  },
+  {
+   "id": "paren",
+   "ru": "п+арень",
+   "en": "guy; boyfriend"
+  }
+ ],
+ "extra": {
+  "type": "sounds",
+  "title": "Удар+ение",
+  "titleEn": "Stress",
+  "count": 10,
+  "drill": [
+   {
+    "w": "мужч+ина",
+    "syl": [
+     "муж",
+     "чи",
+     "на"
+    ],
+    "si": 1,
+    "en": "man"
+   },
+   {
+    "w": "ж+енщина",
+    "syl": [
+     "жен",
+     "щи",
+     "на"
+    ],
+    "si": 0,
+    "en": "woman"
+   },
+   {
+    "w": "сег+одня",
+    "syl": [
+     "се",
+     "го",
+     "дня"
+    ],
+    "si": 1,
+    "en": "today"
+   },
+   {
+    "w": "яз+ык",
+    "syl": [
+     "я",
+     "зык"
+    ],
+    "si": 1,
+    "en": "language"
+   },
+   {
+    "w": "америк+анец",
+    "syl": [
+     "а",
+     "ме",
+     "ри",
+     "ка",
+     "нец"
+    ],
+    "si": 3,
+    "en": "American"
+   },
+   {
+    "w": "англич+анин",
+    "syl": [
+     "ан",
+     "гли",
+     "ча",
+     "нин"
+    ],
+    "si": 2,
+    "en": "Englishman"
+   },
+   {
+    "w": "бог+атый",
+    "syl": [
+     "бо",
+     "га",
+     "тый"
+    ],
+    "si": 1,
+    "en": "rich"
+   },
+   {
+    "w": "г+ород",
+    "syl": [
+     "го",
+     "род"
+    ],
+    "si": 0,
+    "en": "city"
+   },
+   {
+    "w": "пог+ода",
+    "syl": [
+     "по",
+     "го",
+     "да"
+    ],
+    "si": 1,
+    "en": "weather"
+   },
+   {
+    "w": "фам+илия",
+    "syl": [
+     "фа",
+     "ми",
+     "ли",
+     "я"
+    ],
+    "si": 1,
+    "en": "surname"
+   },
+   {
+    "w": "сл+ово",
+    "syl": [
+     "сло",
+     "во"
+    ],
+    "si": 0,
+    "en": "word"
+   },
+   {
+    "w": "молод+ой",
+    "syl": [
+     "мо",
+     "ло",
+     "дой"
+    ],
+    "si": 2,
+    "en": "young"
+   },
+   {
+    "w": "говор+ю",
+    "syl": [
+     "го",
+     "во",
+     "рю"
+    ],
+    "si": 2,
+    "en": "I speak"
+   },
+   {
+    "w": "челов+ек",
+    "syl": [
+     "че",
+     "ло",
+     "век"
+    ],
+    "si": 2,
+    "en": "person"
+   },
+   {
+    "w": "л+юди",
+    "syl": [
+     "лю",
+     "ди"
+    ],
+    "si": 0,
+    "en": "people"
+   },
+   {
+    "w": "з+автра",
+    "syl": [
+     "зав",
+     "тра"
+    ],
+    "si": 0,
+    "en": "tomorrow"
+   }
+  ]
+ },
+ "speak": {
+  "prompt": "Describe your city and today’s weather",
+  "model": {
+   "ru": "Мой г+ород больш+ой и крас+ивый. Сег+одня пог+ода хор+ошая.",
+   "en": "My city is big and beautiful. The weather is good today."
+  },
+  "rounds": [
+   45,
+   30
+  ]
+ },
+ "watch": [
+  {
+   "label": "Nastya · Day 4, people words (мужчина, ребёнок, люди)",
+   "url": "https://www.youtube.com/watch?v=kSGHLWYcdqQ&t=554s"
+  }
+ ],
+ "grammarKnown": [
+  "ребёнок → дети and человек → люди: the plural is a different word"
+ ],
+ "chat": {
+  "scenario": "Small talk with a new neighbour (me): the weather today, your city, your family.",
+  "goal": "talk about the weather, your city and one family member, with 2 adjectives each",
+  "targets": [
+   "adjective endings: хорошая погода, большой город, богатый брат",
+   "люди is plural → хорошие люди"
+  ],
+  "forms": "Погода хорошая (погода is a \"she\" word). Город большой. Люди хорошие (plural). Correct only adjective endings."
+ },
+ "audio": {
+  "irina|англич+анин": "audio/5fb30fadce43.mp3",
+  "dmitri|англич+анин": "audio/da98f32b7c0f.mp3",
+  "irina|англич+анка": "audio/7eca457c9561.mp3",
+  "dmitri|англич+анка": "audio/984fa393fceb.mp3",
+  "irina|л+юди": "audio/568e2492e5cb.mp3",
+  "dmitri|л+юди": "audio/610aa762d7ee.mp3",
+  "irina|ребёнок": "audio/357410d4b8b6.mp3",
+  "dmitri|ребёнок": "audio/1f1968ce64b8.mp3",
+  "irina|семь+я": "audio/99adf5a81353.mp3",
+  "dmitri|семь+я": "audio/93c73499eda0.mp3",
+  "irina|бог+атый": "audio/0da2a94a58d2.mp3",
+  "dmitri|бог+атый": "audio/35b44154a4d7.mp3",
+  "irina|г+ород": "audio/911e24bc6763.mp3",
+  "dmitri|г+ород": "audio/97f19b4f0f49.mp3",
+  "irina|пог+ода": "audio/2b4fda5d4687.mp3",
+  "dmitri|пог+ода": "audio/587d4bec52c8.mp3",
+  "irina|з+автра": "audio/baf67e4b4b95.mp3",
+  "dmitri|з+автра": "audio/6c3e21872ca2.mp3",
+  "irina|Не м+ожет быть!": "audio/a957a2a0e42e.mp3",
+  "dmitri|Не м+ожет быть!": "audio/e9323132c4d0.mp3",
+  "irina|п+арень": "audio/cc8d654bcc7a.mp3",
+  "dmitri|п+арень": "audio/b0fdf91d5d07.mp3",
+  "irina|мужч+ина": "audio/6fcd46409e87.mp3",
+  "dmitri|мужч+ина": "audio/8dc9417002c5.mp3",
+  "denis|мужч+ина": "audio/6f30b6cc4058.mp3",
+  "ruslan|мужч+ина": "audio/fb5292c0bbd8.mp3",
+  "irina|ж+енщина": "audio/5d627862fb9d.mp3",
+  "dmitri|ж+енщина": "audio/4e615d7492e2.mp3",
+  "denis|ж+енщина": "audio/dbad3a5deb1f.mp3",
+  "ruslan|ж+енщина": "audio/f798a4acd66a.mp3",
+  "irina|сег+одня": "audio/411d67ec2e95.mp3",
+  "dmitri|сег+одня": "audio/817d7b244e7a.mp3",
+  "denis|сег+одня": "audio/0983152a06fa.mp3",
+  "ruslan|сег+одня": "audio/ec5b0687e985.mp3",
+  "irina|яз+ык": "audio/a63efe36cf60.mp3",
+  "dmitri|яз+ык": "audio/718440bea60f.mp3",
+  "denis|яз+ык": "audio/1f7ddd12f263.mp3",
+  "ruslan|яз+ык": "audio/9587ab5c9336.mp3",
+  "irina|америк+анец": "audio/cbe84d21bcc0.mp3",
+  "dmitri|америк+анец": "audio/77ce8ee8012b.mp3",
+  "denis|америк+анец": "audio/7331b7fe2384.mp3",
+  "ruslan|америк+анец": "audio/d38ae350c80c.mp3",
+  "denis|англич+анин": "audio/d45d3d12e460.mp3",
+  "ruslan|англич+анин": "audio/9e3b2a75c7fd.mp3",
+  "denis|бог+атый": "audio/17769f7a60e9.mp3",
+  "ruslan|бог+атый": "audio/4ec2ac21492e.mp3",
+  "denis|г+ород": "audio/7d2a817f2add.mp3",
+  "ruslan|г+ород": "audio/15913be3cdf2.mp3",
+  "denis|пог+ода": "audio/4a3fcf44b048.mp3",
+  "ruslan|пог+ода": "audio/4581c8fbca4b.mp3",
+  "irina|фам+илия": "audio/706d993a620d.mp3",
+  "dmitri|фам+илия": "audio/141c1de9b9b7.mp3",
+  "denis|фам+илия": "audio/96cf6827d7d9.mp3",
+  "ruslan|фам+илия": "audio/9a25248267ea.mp3",
+  "irina|сл+ово": "audio/c6327d51b1fa.mp3",
+  "dmitri|сл+ово": "audio/dec07b9ad2df.mp3",
+  "denis|сл+ово": "audio/4e96126e50ae.mp3",
+  "ruslan|сл+ово": "audio/aa500dcc22a7.mp3",
+  "irina|молод+ой": "audio/12722d850b4c.mp3",
+  "dmitri|молод+ой": "audio/a8278884ec16.mp3",
+  "denis|молод+ой": "audio/944ca7ced81c.mp3",
+  "ruslan|молод+ой": "audio/79c89e1c9c4b.mp3",
+  "irina|говор+ю": "audio/1e7d2f3bbefa.mp3",
+  "dmitri|говор+ю": "audio/e3a70b154f91.mp3",
+  "denis|говор+ю": "audio/7d5261819585.mp3",
+  "ruslan|говор+ю": "audio/0b5f1e2f3447.mp3",
+  "irina|челов+ек": "audio/535bb1ac67da.mp3",
+  "dmitri|челов+ек": "audio/df29d94eec76.mp3",
+  "denis|челов+ек": "audio/cb430511097a.mp3",
+  "ruslan|челов+ек": "audio/d9a44955f0e9.mp3",
+  "denis|л+юди": "audio/cf9224e34a30.mp3",
+  "ruslan|л+юди": "audio/1c2f62668700.mp3",
+  "denis|з+автра": "audio/999631cf4aa2.mp3",
+  "ruslan|з+автра": "audio/41c011da0fac.mp3",
+  "denis|Мой г+ород больш+ой и крас+ивый. Сег+одня пог+ода хор+ошая.": "audio/cc3e273ce88f.mp3"
+ }
+}

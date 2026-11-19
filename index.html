@@ -1,0 +1,1024 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Russian"><style>html,body{margin:0;padding:0}</style>
+<title>Russian Daily</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap">
+<style>
+/* Layout: one task per screen. Thin top bar (part name + progress), content centred, one action at the bottom.
+   Whiteboard look: blue marker = Russian, red = stress. Minimal words on every screen. */
+:root{
+  --board:#f3f6f5; --surface:#ffffff; --ink:#1a1f24; --muted:#5f6a73; --line:#d8dee2;
+  --blue:#1d4ed8; --blue-soft:#e3eafc; --red:#cf2f2b; --red-soft:#fbe4e2;
+  --green:#157a3c; --green-soft:#dbf2e3; --amber:#9a6200; --amber-soft:#fbefd9; --on-accent:#ffffff;
+  --font-display:"Unbounded","Golos Text",system-ui,sans-serif;
+  --font-body:"Golos Text",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --board:#11161a; --surface:#1a2127; --ink:#e6ebee; --muted:#9aa5ae; --line:#2b353d;
+  --blue:#86a7ff; --blue-soft:#1c2846; --red:#ff6f66; --red-soft:#3a1c1b;
+  --green:#5cd88b; --green-soft:#15301f; --amber:#f2b453; --amber-soft:#33270f; --on-accent:#0d1218; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --board:#11161a; --surface:#1a2127; --ink:#e6ebee; --muted:#9aa5ae; --line:#2b353d;
+  --blue:#86a7ff; --blue-soft:#1c2846; --red:#ff6f66; --red-soft:#3a1c1b;
+  --green:#5cd88b; --green-soft:#15301f; --amber:#f2b453; --amber-soft:#33270f; --on-accent:#0d1218; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--board);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.45;overflow:hidden;-webkit-font-smoothing:antialiased}
+#app{height:100%;max-width:520px;margin:0 auto;display:flex;flex-direction:column;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.top{display:flex;align-items:center;gap:12px;padding-block:12px 4px}
+#app.home .top{display:none}
+.x{width:36px;height:36px;border-radius:10px;border:none;background:transparent;color:var(--muted);display:grid;place-items:center;cursor:pointer;flex:none}
+.part{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--red);min-width:72px}
+.bar{flex:1;height:6px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--blue);transition:width .3s}
+.spd{height:32px;padding:0 10px;border-radius:99px;border:1px solid var(--line);background:transparent;color:var(--muted);font:inherit;font-size:12px;font-weight:600;cursor:pointer}
+.spd.on{color:var(--blue);border-color:var(--blue)}
+#stage{flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;padding-block:20px}
+.col{display:flex;flex-direction:column;gap:18px;margin-block:auto}
+#sheet{padding-block:12px 16px;display:flex;flex-direction:column;gap:10px}
+#sheet.good,#sheet.bad,#sheet.hint{border-radius:18px 18px 0 0;padding-inline:16px;margin-inline:-16px}
+#sheet.good{background:var(--green-soft)} #sheet.bad{background:var(--red-soft)} #sheet.hint{background:var(--amber-soft)}
+p{margin:0}
+.cue{font-size:14px;color:var(--muted);text-align:center}
+.ru{color:var(--blue);font-weight:600}
+.st{color:var(--red)}
+.big{font-weight:600;font-size:clamp(34px,10vw,46px);line-height:1.15;color:var(--blue);text-align:center;overflow-wrap:anywhere;text-wrap:balance}
+.mid{font-weight:600;font-size:clamp(22px,6.5vw,28px);line-height:1.3;color:var(--blue);text-align:center;overflow-wrap:anywhere;text-wrap:balance}
+.en{font-size:21px;font-weight:500;text-align:center;text-wrap:balance}
+.en.lg{font-size:26px;font-weight:600}
+.note{font-size:14px;color:var(--muted);text-align:center;max-width:36ch;margin-inline:auto}
+.center{display:flex;justify-content:center;align-items:center;gap:14px}
+.play{border:none;background:var(--blue);color:var(--on-accent);border-radius:50%;width:72px;height:72px;display:grid;place-items:center;cursor:pointer;flex:none}
+.play.sm{width:40px;height:40px;background:var(--blue-soft);color:var(--blue)}
+.play svg{width:30px;height:30px}
+.play.sm svg{width:18px;height:18px}
+.play.playing{box-shadow:0 0 0 6px var(--blue-soft)}
+.ticks{display:flex;gap:6px;justify-content:center}
+.tick{width:10px;height:10px;border-radius:50%;border:2px solid var(--blue)}
+.tick.done{background:var(--blue)}
+.hidden{visibility:hidden}
+.warn{color:var(--red)}
+.ver{text-align:left;font-size:12px;opacity:.7}
+.code{display:none;width:100%;box-sizing:border-box;font:12px ui-monospace,Menlo,monospace;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:10px;resize:none;user-select:text;-webkit-user-select:text}
+
+.opts{display:grid;gap:10px}
+.opt{min-height:54px;padding:12px 14px;border:2px solid var(--line);border-bottom-width:4px;border-radius:14px;background:var(--surface);color:var(--ink);font:inherit;font-size:17px;cursor:pointer;width:100%;text-align:center}
+.opt.right{border-color:var(--green);background:var(--green-soft)}
+.opt.wrong{border-color:var(--red);background:var(--red-soft)}
+.syls{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center}
+.syl{height:64px;min-width:64px;padding:0 16px;border:2px solid var(--line);border-bottom-width:4px;border-radius:14px;background:var(--surface);font:inherit;font-size:28px;font-weight:600;color:var(--blue);cursor:pointer}
+.syl.right{border-color:var(--green);background:var(--green-soft)}
+.syl.wrong{border-color:var(--red);background:var(--red-soft)}
+
+.btn{height:54px;border-radius:14px;border:none;background:var(--blue);color:var(--on-accent);font-family:var(--font-display);font-weight:600;font-size:14px;letter-spacing:.02em;cursor:pointer;width:100%;padding:0 10px}
+.btn:disabled{opacity:.35;cursor:default}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.btn.good{background:var(--green)} .btn.bad{background:var(--red)} .btn.amber{background:var(--amber)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button:focus-visible,a:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.link{background:none;border:none;color:var(--blue);font:inherit;font-weight:600;cursor:pointer;padding:6px 0;text-decoration:none}
+
+.answer{min-height:56px;border:2px solid var(--line);border-radius:14px;background:var(--surface);padding:12px 14px;font-size:22px;font-weight:600;color:var(--blue);display:flex;align-items:center;justify-content:center;flex-wrap:wrap;overflow-wrap:anywhere}
+.answer .ph{color:var(--muted);font-size:14px;font-weight:400}
+.answer .caret{display:inline-block;width:2px;height:1.1em;background:var(--blue);margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.kb{display:flex;flex-direction:column;gap:6px;user-select:none;-webkit-user-select:none}
+.kr{display:flex;gap:4px}
+.key{flex:1;min-width:0;height:44px;border:none;border-radius:8px;background:var(--surface);box-shadow:0 2px 0 var(--line);color:var(--ink);font:inherit;font-size:19px;cursor:pointer;padding:0}
+.key:active{background:var(--blue-soft)}
+.key.w{flex:2;font-size:14px;font-weight:600}
+.key.sp{flex:5}
+.diff{font-size:22px;line-height:1.6;text-align:center}
+.ok{color:var(--green);font-weight:600}
+.no{color:var(--red);font-weight:600;text-decoration:underline wavy;text-underline-offset:4px}
+
+.rule{display:grid;grid-template-columns:auto auto 1fr;gap:8px 14px;align-items:baseline;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+.rule .a{color:var(--muted);font-size:18px}
+.rule .b{color:var(--blue);font-weight:700;font-size:20px}
+.rule .c{color:var(--muted);font-size:14px}
+.line{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;padding:10px 12px;border-radius:14px;background:var(--surface);border:1px solid var(--line)}
+.line.done{border-color:var(--blue)}
+.line .who{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);font-weight:600}
+.line .t{font-size:18px;color:var(--blue);font-weight:600}
+.line .e{font-size:13px;color:var(--muted)}
+.lines{display:flex;flex-direction:column;gap:8px}
+.timer{font-family:var(--font-display);font-weight:700;font-size:80px;line-height:1;text-align:center;font-variant-numeric:tabular-nums}
+.timer.over{color:var(--green)}
+.fb{display:flex;flex-direction:column;gap:4px;text-align:center}
+.fb b{font-family:var(--font-display);font-size:17px}
+#sheet.good .fb b{color:var(--green)} #sheet.bad .fb b{color:var(--red)} #sheet.hint .fb b{color:var(--amber)}
+
+/* home + results */
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--red)}
+.display{font-family:var(--font-display);font-weight:700;font-size:clamp(48px,15vw,72px);line-height:1;margin:0}
+.display .n{color:var(--red)}
+.plan{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.plan div{display:flex;justify-content:space-between;gap:12px;padding-block:12px;border-bottom:1px solid var(--line);font-size:17px}
+.plan span:last-child{color:var(--muted);font-variant-numeric:tabular-nums}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}
+.stat b{font-family:var(--font-display);font-size:24px;display:block;font-variant-numeric:tabular-nums}
+.stat span{font-size:12px;color:var(--muted)}
+.links{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.prompt{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;font-size:13px;line-height:1.5;white-space:pre-wrap;max-height:46vh;overflow:auto;user-select:text;-webkit-user-select:text}
+.seg{display:flex;gap:6px}
+.seg button{flex:1;height:40px;border-radius:10px;border:2px solid var(--line);background:transparent;color:var(--ink);font:inherit;font-weight:600;cursor:pointer}
+.seg button.on{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.in{animation:in .18s ease-out}
+@keyframes in{from{transform:translateY(6px);opacity:.5}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div id="app" class="home">
+  <header class="top">
+    <button class="x" id="quit" aria-label="Leave"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <span class="part" id="part"></span>
+    <div class="bar"><i id="fill"></i></div>
+    <button class="spd" id="speed" aria-label="Audio speed">1×</button>
+  </header>
+  <main id="stage" aria-live="polite"></main>
+  <footer id="sheet"></footer>
+</div>
+
+<script>
+/* ============ helpers ============ */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const plain = s => String(s ?? '').replace(/\+/g, '');
+const rr = s => esc(s).replace(/\+(.)/g, '<span class="st">$1</span>');
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const pick = a => a[Math.floor(Math.random() * a.length)];
+const norm = s => plain(s).toLowerCase().replace(/́/g, '').replace(/ё/g, 'е').replace(/[.,!?…:;—–\-"«»()]/g, ' ').replace(/\s+/g, ' ').trim();
+const DAY = 864e5;
+const today = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+const endOfToday = () => { const d = new Date(); d.setHours(23, 59, 59, 999); return d.getTime(); };
+const PLAY = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>';
+const SPK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
+
+/* ============ FSRS-5 (default weights, 90% retention) ============ */
+const W = [0.40255,1.18385,3.173,15.69105,7.1949,0.5345,1.4604,0.0046,1.54575,0.1192,1.01925,1.9395,0.11,0.29605,2.2698,0.2315,2.9898,0.51655,0.6621];
+const DECAY = -0.5, FACTOR = 19 / 81, RETAIN = 0.9;
+const clampD = d => Math.min(10, Math.max(1, d));
+const D0 = g => clampD(W[4] - Math.exp(W[5] * (g - 1)) + 1);
+const ivl = S => Math.max(1, Math.round(S / FACTOR * (Math.pow(RETAIN, 1 / DECAY) - 1)));
+const nextD = (D, g) => clampD(W[7] * D0(4) + (1 - W[7]) * (D - W[6] * (g - 3) * (10 - D) / 9));
+const fsrs = {
+  first: g => ({S: W[g - 1], D: D0(g), reps: 1, lapses: g === 1 ? 1 : 0}),
+  sameDay: (c, g) => ({...c, S: c.S * Math.exp(W[17] * (g - 3 + W[18])), D: nextD(c.D, g), reps: c.reps + 1}),
+  review(c, g, t){
+    const R = Math.pow(1 + FACTOR * Math.max(t, 0) / c.S, DECAY);
+    const S = g === 1
+      ? Math.min(c.S, W[11] * Math.pow(c.D, -W[12]) * (Math.pow(c.S + 1, W[13]) - 1) * Math.exp(W[14] * (1 - R)))
+      : c.S * (1 + Math.exp(W[8]) * (11 - c.D) * Math.pow(c.S, -W[9]) * (Math.exp(W[10] * (1 - R)) - 1) * (g === 2 ? W[15] : 1) * (g === 4 ? W[16] : 1));
+    return {...c, S, D: nextD(c.D, g), reps: c.reps + 1, lapses: c.lapses + (g === 1 ? 1 : 0)};
+  }
+};
+// A card seen only once comes back the next day, after sleep (reports/Science of fast language learning.md, "First steps
+// for a new item"; app 4.4, 2026-11-17). FSRS alone waited 3 days, and the learner forgot the words in between.
+// Only for meaning cards (:r), which a new word starts with; production cards (:p) keep FSRS's own schedule.
+const firstStep = (k, c) => (k.endsWith(':r') && c.reps === 1 && c.last && c.due > c.last + DAY) ? {...c, due: c.last + DAY} : c;
+const firstSteps = () => { for (const [k, c] of Object.entries(P.cards)){ const f = firstStep(k, c); if (f !== c) P.cards[k] = f; } };
+function grade(key, g){
+  const now = Date.now(), c = P.cards[key];
+  let n;
+  if (!c || !c.reps) n = fsrs.first(g);
+  else if (c.last && now - c.last < 12 * 3600e3) n = fsrs.sameDay(c, g);
+  else n = fsrs.review(c, g, (now - c.last) / DAY);
+  P.cards[key] = firstStep(key, {...n, day: c?.day || S.dayId, last: now, due: now + (g === 1 ? 10 * 60e3 : ivl(n.S) * DAY)});
+  S.touched.add(P.cards[key].day);
+  local.set('cards', P.cards);   // kept on this device right away: a reload mid-day loses nothing already graded
+}
+
+/* ============ storage: this browser first; the repo copy (progress.json) on GitHub Pages, or a claude.ai artifact db ============ */
+// ?selftest=1 runs selftest() below (tools/test_app.py uses it). It keeps its own storage, so it never touches real progress.
+const SELFTEST = new URLSearchParams(location.search).get('selftest') === '1';
+const LS = SELFTEST ? 'ru3test:' : 'ru3:';
+const local = {
+  get(k, d){ try { const v = localStorage.getItem(LS + k); return v == null ? d : JSON.parse(v); } catch(e){ return d; } },
+  set(k, v){ try { localStorage.setItem(LS + k, JSON.stringify(v)); } catch(e){} }
+};
+const VERSION = '4.4';
+let DB = null, DBWHY = '';   // DBWHY: why there is no claude.ai database here (on GitHub Pages there never is)
+// On GitHub Pages, progress lives on this phone, and the learner pastes it to Claude, which commits it to
+// russian/progress in the repo. The deploy publishes that copy as progress.json: it restores a wiped phone
+// and tells the app which results Claude already has.
+let REPO = null;   // {cards, meta, starts} from progress.json, or null when it couldn't be loaded
+async function loadRepo(){
+  try { const r = await limit(fetch('progress.json?t=' + Date.now(), {cache: 'no-store'}), 8000); if (r.ok) REPO = await r.json(); }
+  catch(e){ console.warn('[repo] progress.json not loaded', e); }
+}
+const unsentLogs = () => (local.get('logs', []) || []).filter(l => !(REPO?.starts || []).includes(l.start));
+function unsentCards(){
+  const rc = REPO?.cards || {};
+  return Object.fromEntries(Object.entries(P.cards).filter(([k, c]) => !rc[k] || (c.last || 0) > (rc[k].last || 0)));
+}
+const why = e => String((e && (e.code || e.message || e.name)) || e).slice(0, 80);
+const P = { cards: {}, meta: {done: [], days: []} };   // progress
+// A db call can hang with no error on a bad connection, so every db wait has a time limit.
+const limit = (p, ms) => Promise.race([p, new Promise((_, no) => setTimeout(() => no({code: 'timeout'}), ms))]);
+// Progress saved in this browser that never reached the online copy (a save that timed out): newer cards and done days win.
+function mergeLocal(){
+  const lc = local.get('cards', {}) || {}, lm = local.get('meta', null), days = new Set();
+  let meta = false;
+  for (const [k, c] of Object.entries(lc)){
+    const o = P.cards[k];
+    if (c && c.day && (!o || (c.last || 0) > (o.last || 0))){ P.cards[k] = c; days.add(c.day); }
+  }
+  if (lm) for (const f of ['done', 'days']) for (const x of lm[f] || []) if (!P.meta[f].includes(x)){ P.meta[f] = [...P.meta[f], x]; meta = true; }
+  if (lm && 'resume' in lm && JSON.stringify(lm.resume) !== JSON.stringify(P.meta.resume || null)){ P.meta = {...P.meta, resume: lm.resume}; meta = true; }
+  return {days, meta};
+}
+async function writeDb(days, log){
+  for (const day of days){
+    const cards = Object.fromEntries(Object.entries(P.cards).filter(([, c]) => c.day === day));
+    await DB.doc('cards/' + day).set({cards});
+  }
+  await DB.doc('meta/state').set(P.meta);
+  if (log) await DB.doc('logs/' + log.date + '-' + log.day).set(log);   // one doc per day done: two days on one date don't overwrite each other
+}
+let UPLOAD = '';   // '' | 'busy' | 'ok' | failure reason, for progress kept on this device
+async function loadProgress(){
+  const old = local.get('log', null);   // app 3.x kept one unsent log
+  if (old){ local.set('logs', [...(local.get('logs', []) || []), old]); local.set('log', null); }
+  if (DB){
+    try {
+      const [cs, m] = await limit(Promise.all([DB.collection('cards').get(), DB.doc('meta/state').get()]), 12000);
+      // The db hands back frozen (read-only) objects: copy them before the app changes anything.
+      const own = d => JSON.parse(JSON.stringify(d.data() || {}));
+      cs.docs.forEach(d => Object.assign(P.cards, own(d).cards || {}));
+      if (m.exists) P.meta = {...P.meta, ...own(m)};
+      firstSteps();
+      const up = mergeLocal(), logs = local.get('logs', []) || [];
+      if (up.days.size || up.meta || logs.length){
+        console.info('[db] uploading progress saved on this device', [...up.days], logs);
+        UPLOAD = 'busy';
+        const send = async () => { await writeDb(up.days, null); for (const l of logs) await DB.doc('logs/' + l.date + '-' + l.day).set(l); };
+        limit(send(), 20000).then(() => { local.set('logs', []); UPLOAD = 'ok'; }, e => { console.warn('[db] upload failed', e); UPLOAD = 'upload ' + why(e); }).then(() => { if (!S) pendingLine(); });
+      }
+      return;
+    } catch(e){ console.warn('[db] load failed, using this browser', e); DBWHY = 'load ' + why(e); DB = null; }
+  }
+  P.cards = {...(local.get('cards', {}) || {})};
+  firstSteps();
+  const lm = local.get('meta', null) || {};
+  P.meta = {...P.meta, ...lm, done: [...(lm.done || [])], days: [...(lm.days || [])]};
+  if (!REPO) return;
+  // The repo's copy wins where it is newer (a wiped or new phone), and Claude's done days are added.
+  for (const [k, c] of Object.entries(REPO.cards || {})) if (!P.cards[k] || (c.last || 0) > (P.cards[k].last || 0)) P.cards[k] = c;
+  for (const f of ['done', 'days']) for (const x of REPO.meta?.[f] || []) if (!P.meta[f].includes(x)) P.meta[f] = [...P.meta[f], x];
+  firstSteps();
+  local.set('cards', P.cards); local.set('meta', P.meta); local.set('logs', unsentLogs());
+}
+// Always saves on this device first. Returns 'ok' when a claude.ai database has it too, else 'phone'.
+async function saveProgress(log){
+  local.set('cards', P.cards); local.set('meta', P.meta);
+  if (log) local.set('logs', [...(local.get('logs', []) || []).filter(l => l.start !== log.start), log]);
+  if (!DB) return 'phone';
+  try { await limit(writeDb(S.touched, log), 15000); local.set('logs', []); return 'ok'; }
+  catch(e){ console.warn('[db] save failed', e); return 'save ' + why(e); }
+}
+// Everything Claude doesn't have yet, as text the learner pastes to Claude (tools/apply_results.py reads it).
+function resultsCode(reason){
+  const r4 = v => typeof v === 'number' && !Number.isInteger(v) ? +v.toFixed(4) : v;
+  const cards = {};
+  for (const [k, c] of Object.entries(unsentCards())) cards[k] = Object.fromEntries(Object.entries(c).map(([f, v]) => [f, r4(v)]));
+  return 'RU-RESULTS ' + JSON.stringify({v: VERSION, why: reason, ua: navigator.userAgent.slice(0, 160), meta: P.meta, logs: unsentLogs(), cards});
+}
+// Copy: the textarea route first (iOS needs it inside the tap), then the clipboard API; the text stays selected for a manual copy.
+function copyCode(code, btn, ta){
+  ta.value = code; ta.style.display = 'block'; ta.focus(); ta.select(); ta.setSelectionRange(0, code.length);
+  let ok = false; try { ok = document.execCommand('copy'); } catch(e){}
+  const done = ok => { btn.textContent = ok ? 'Copied. Paste it to Claude' : 'Select all the text below and copy it'; };
+  if (ok) return done(true);
+  try { navigator.clipboard.writeText(code).then(() => done(true), () => done(false)); } catch(e){ done(false); }
+}
+function pendingLine(){
+  const el = $('#pend'); if (!el) return;
+  const logs = unsentLogs();
+  if (!logs.length || UPLOAD === 'ok'){ el.innerHTML = ''; return; }
+  const n = logs.map(l => DAYS[l.day]?.n ?? l.day).join(', ');
+  if (UPLOAD === 'busy'){ el.innerHTML = `<p class="cue" style="text-align:left">Uploading your Day ${n} results…</p>`; return; }
+  el.innerHTML = `<p class="cue warn" style="text-align:left">Claude doesn’t have your Day ${n} results yet. Copy them and paste them in Claude Code.</p>
+    <button class="btn amber" id="pcopy">Copy results for Claude</button><textarea class="code" id="pcode" rows="4" inputmode="none" spellcheck="false"></textarea>`;
+  $('#pcopy').onclick = () => copyCode(resultsCode(UPLOAD || 'phone'), $('#pcopy'), $('#pcode'));
+}
+
+/* ============ audio ============ */
+const player = new Audio(); player.preload = 'auto';
+let slow = false, pending = null;
+const AUDIO = {};   // "voice|text" -> url
+const src = (v, t) => AUDIO[v + '|' + t];
+function play(v, t, btn){
+  if (pending){ pending(false); pending = null; }
+  document.querySelectorAll('.play.playing').forEach(b => b.classList.remove('playing'));
+  return new Promise(res => {
+    const url = v === '@url' ? t : src(v, t);
+    if (!url){ console.warn('[audio] missing', v, t); res(true); return; }
+    pending = res; btn && btn.classList.add('playing');
+    const done = ok => { if (pending === res) pending = null; btn && btn.classList.remove('playing'); player.onended = player.onerror = null; res(ok); };
+    player.onended = () => { if (S && isFinite(player.duration)) S.heard += player.duration / player.playbackRate; done(true); };
+    player.onerror = () => done(true);
+    player.src = url; player.playbackRate = slow ? 0.75 : 1;
+    player.play().catch(() => done(false));
+  });
+}
+function hush(){ try { player.pause(); } catch(e){} if (pending){ pending(false); pending = null; } }
+$('#speed').onclick = () => { slow = !slow; $('#speed').textContent = slow ? '0.75×' : '1×'; $('#speed').classList.toggle('on', slow); };
+const pbtn = (v, t, sm) => `<button class="play${sm ? ' sm' : ''}" data-v="${esc(v)}" data-t="${esc(t)}" aria-label="Play">${sm ? SPK : PLAY}</button>`;
+
+/* ============ screen plumbing ============ */
+const stageEl = $('#stage'), sheetEl = $('#sheet'), app = $('#app');
+function wire(root){ root.querySelectorAll('.play[data-v]').forEach(b => { if (!b.onclick) b.onclick = () => play(b.dataset.v, b.dataset.t, b); }); root.querySelectorAll('[data-next]').forEach(b => b.onclick = next); }
+function stage(html){ stageEl.innerHTML = `<div class="col in">${html}</div>`; stageEl.scrollTop = 0; wire(stageEl); }
+function sheet(html, cls){ sheetEl.className = cls || ''; sheetEl.innerHTML = html; wire(sheetEl); }
+/* listen-and-repeat gate: the button unlocks only after the audio has been played `need` times */
+function gate(v, t, need, unlock){
+  const b = stageEl.querySelector('.gate'), ticks = [...stageEl.querySelectorAll('.tick')];
+  let n = 0;
+  // Every tap counts, without waiting for the sound: a clip that fails or never ends must not lock Next (Day 5, 2026-11-15).
+  b.onclick = () => { play(v, t, b); if (n >= need) return; n++; ticks.forEach((x, i) => x.classList.toggle('done', i < n)); if (n === need){ S.spoken++; unlock(); } };
+}
+const gateHtml = (need = 1) => `<div class="center"><button class="play gate" aria-label="Play">${PLAY}</button></div><div class="ticks">${'<span class="tick"></span>'.repeat(need)}</div>`;
+function fb(ok, {ru, v, why, sub} = {}){
+  S.fb = true;
+  sheet(`<div class="fb"><b>${ok ? pick(['Верно!','Отлично!','Точно!']) : 'Не совсем'}</b>${sub ? `<span class="cue">${esc(sub)}</span>` : ''}
+    ${ru ? `<div class="center"><span class="mid">${rr(ru)}</span>${v ? pbtn(v, ru, true) : ''}</div>` : ''}
+    ${why ? `<p class="note">${rr(why)}</p>` : ''}</div><button class="btn ${ok ? 'good' : 'bad'}" data-next>Continue</button>`, ok ? 'good' : 'bad');
+  if (ru && v) play(v, ru);
+}
+
+/* on-screen Russian keyboard */
+const KB = ['йцукенгшщзх', 'фывапролджэ', 'ячсмитьбю'];
+let typing = null;
+function typer(box, onEnter){
+  let val = '', change = () => {};
+  const draw = () => { box.innerHTML = (val ? esc(val) : '<span class="ph">type in Russian</span>') + '<span class="caret"></span>'; };
+  const kb = document.createElement('div'); kb.className = 'kb';
+  kb.innerHTML = KB.map((r, i) => `<div class="kr">${[...r].map(c => `<button class="key" data-k="${c}">${c}</button>`).join('')}${i === 2 ? '<button class="key w" data-k="⌫" aria-label="Delete">⌫</button>' : ''}</div>`).join('') + '<div class="kr"><button class="key sp" data-k=" ">space</button></div>';
+  kb.onclick = e => { const b = e.target.closest('[data-k]'); if (!b) return; val = b.dataset.k === '⌫' ? val.slice(0, -1) : val + b.dataset.k; draw(); change(); };
+  draw();
+  return typing = { el: kb, get value(){ return val; }, onChange(f){ change = f; }, key(e){
+    if (e.key === 'Backspace'){ val = val.slice(0, -1); draw(); change(); return true; }
+    if (e.key === 'Enter'){ onEnter(); return true; }
+    if (e.key.length === 1 && /[а-яё ]/i.test(e.key)){ val += e.key.toLowerCase(); draw(); change(); return true; }
+    return false; } };
+}
+function wordDiff(target, answer){
+  const T = norm(target).split(' '), A = norm(answer).split(' ').filter(Boolean);
+  const dp = Array.from({length: T.length + 1}, () => Array(A.length + 1).fill(0));
+  for (let i = T.length - 1; i >= 0; i--) for (let j = A.length - 1; j >= 0; j--) dp[i][j] = T[i] === A[j] ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1]);
+  const ok = new Set(); let i = 0, j = 0;
+  while (i < T.length && j < A.length){ if (T[i] === A[j]){ ok.add(i); i++; j++; } else if (dp[i + 1][j] >= dp[i][j + 1]) i++; else j++; }
+  return { ok: ok.size, total: T.length, html: plain(target).split(/\s+/).map((w, k) => `<span class="${ok.has(k) ? 'ok' : 'no'}">${esc(w)}</span>`).join(' ') };
+}
+
+/* ============ course data ============ */
+let C = null;                 // course.json
+const DAYS = {};              // id -> day json
+const ITEMS = {};             // item id -> {item, day}
+const BOOT = Date.now();   // cache-buster: a new publish is seen on the next app open, not 10 minutes later
+async function getJson(path){
+  const r = await limit(fetch(path + '?t=' + BOOT, {cache: 'no-store'}), 15000);
+  if (!r.ok) throw new Error(path + ': HTTP ' + r.status);
+  return r.json();
+}
+async function loadDay(id){
+  if (!DAYS[id]){
+    const d = await getJson('days/' + id + '.json');
+    DAYS[id] = d;
+    Object.assign(AUDIO, d.audio || {});
+    (d.new || []).forEach(it => ITEMS[it.id] = {...it, day: id});
+  }
+  return DAYS[id];
+}
+const V = () => C.voices;      // roles -> voice names
+const currentDayId = () => C.days.find(id => !P.meta.done.includes(id)) || C.days[C.days.length - 1];
+
+/* ============ session ============ */
+let S = null;
+const NEW_STEPS_FROM = 'd07';
+const PARTS = {review: 'Review', new: 'New', grammar: 'Grammar', story: 'Story', sounds: 'Sounds', late: 'Recall', practice: 'Practice', speak: 'Speak', check: 'Checkpoint'};
+async function buildSession(reviewOnly){
+  const dayId = currentDayId();
+  const day = await loadDay(dayId);
+  const earlier = C.days.slice(0, C.days.indexOf(dayId));
+  await Promise.all(earlier.map(loadDay));
+  const due = Object.entries(P.cards).filter(([k, c]) => c.due <= endOfToday() && ITEMS[k.split(':')[0]]).sort((a, b) => a[1].due - b[1].due);
+  const reviews = due.slice(0, C.limits.maxReviews).map(([k]) => ({t: k.endsWith(':p') ? 'revP' : 'revR', p: 'review', key: k}));
+  const skipNew = reviewOnly || due.length > C.limits.pauseNewAbove;
+  const steps = [...reviews];
+  // From d07 (2026-11-17, the learner asked): a matching round on first meeting a word (multiple choice with feedback
+  // suits first exposure: Butler & Roediger 2008), and a second recall later in the session (about 10 min later: Nakata 2017).
+  const extraNew = !skipNew && C.days.includes(NEW_STEPS_FROM) && C.days.indexOf(dayId) >= C.days.indexOf(NEW_STEPS_FROM);
+  if (!skipNew){
+    const items = day.new || [];
+    for (let i = 0; i < items.length; i += 5){
+      const ch = items.slice(i, i + 5);
+      ch.forEach(it => steps.push({t: 'learn', p: 'new', id: it.id}));
+      if (extraNew) shuffle(ch).forEach(it => steps.push({t: 'match', p: 'new', id: it.id}));
+      shuffle(ch).forEach(it => steps.push({t: 'recall', p: 'new', id: it.id}));
+    }
+  }
+  const x = day.extra;
+  if (x){
+    if (x.type === 'grammar'){
+      steps.push({t: 'rule', p: 'grammar'});
+      x.input.forEach((q, i) => steps.push({t: 'ginput', p: 'grammar', i}));
+      shuffle(x.produce.map((q, i) => i)).forEach(i => steps.push({t: 'produce', p: 'grammar', i}));
+    } else if (x.type === 'story'){
+      steps.push({t: 'listen', p: 'story'});
+      x.questions.forEach((q, i) => steps.push({t: 'question', p: 'story', i}));
+      steps.push({t: 'lines', p: 'story'});
+      x.dictation.forEach((d, i) => steps.push({t: 'dictate', p: 'story', i}));
+    } else if (x.type === 'sounds'){
+      shuffle(x.drill).slice(0, x.count || 10).forEach(s => steps.push({t: 'stress', p: 'sounds', s, v: pick(V().all)}));
+    } else if (x.type === 'check'){
+      x.imitate.forEach((q, i) => steps.push({t: 'imitate', p: 'check', i}));
+      x.dictation.forEach((d, i) => steps.push({t: 'dictate', p: 'check', i}));
+      x.translate.forEach((q, i) => steps.push({t: 'translate', p: 'check', i}));
+    }
+  }
+  if (extraNew) shuffle([...(day.new || [])]).forEach(it => steps.push({t: 'recall2', p: 'late', id: it.id}));
+  if (day.speak){
+    steps.push({t: 'model', p: 'speak'});
+    day.speak.rounds.forEach((sec, i) => steps.push({t: 'round', p: 'speak', i, sec}));
+  }
+  return {dayId, day, steps, i: 0, fb: false, touched: new Set(), heard: 0, spoken: 0, firstTry: {}, revDone: 0, revAgain: 0, gram: [0, 0], dict: [0, 0], imit: [0, 0], trans: [0, 0], match: [0, 0], late: [0, 0], start: Date.now(), skipNew};
+}
+function show(){
+  hush(); typing = null; S.fb = false;
+  const st = S.steps[S.i];
+  if (!st) return S.practice ? practiceEnd() : finish();
+  app.classList.remove('home');
+  // Remember the part reached, so a stuck screen or a closed app can continue from it (Home: "Continue from …").
+  if (!S.practice && (P.meta.resume?.day !== S.dayId || P.meta.resume?.part !== st.p)){ P.meta = {...P.meta, resume: {day: S.dayId, part: st.p}}; local.set('meta', P.meta); }
+  $('#part').textContent = PARTS[st.p];
+  $('#fill').style.width = Math.round(100 * S.i / S.steps.length) + '%';
+  R[st.t](st);
+}
+function next(){ S.i++; show(); }
+function again(st, gap){
+  if ((st.k || 0) >= 2) return;
+  const end = S.steps.reduce((a, s, k) => s.p === st.p ? k : a, S.i);
+  S.steps.splice(Math.min(S.i + gap, end + 1), 0, {...st, k: (st.k || 0) + 1});
+}
+const it = id => ITEMS[id];
+function twoButtons(onGrade, labels = ['Again', 'Good']){
+  sheet(`<div class="row2"><button class="btn bad" data-g="1">${labels[0]}</button><button class="btn good" data-g="3">${labels[1]}</button></div>`);
+  sheetEl.querySelectorAll('[data-g]').forEach(b => b.onclick = () => onGrade(+b.dataset.g));
+}
+
+/* ============ screens ============ */
+const R = {
+  /* review: recognise (Russian -> meaning) */
+  revR(st){
+    const [id] = st.key.split(':'); const x = it(id);
+    stage(`<p class="cue">What does it mean?</p><div class="big">${rr(x.ru)}</div><div class="center">${pbtn(V().review, x.ru)}</div>
+      <div id="ans" class="hidden"><p class="en">${esc(x.en)}</p></div>`);
+    play(V().review, x.ru, stageEl.querySelector('.play'));
+    sheet('<button class="btn" id="show">Show</button>');
+    $('#show').onclick = () => { $('#ans').classList.remove('hidden'); twoButtons(g => {
+      grade(st.key, g); S.revDone++; if (g === 1){ S.revAgain++; again(st, 5); }
+      else if (!P.cards[id + ':p']){ P.cards[id + ':p'] = {day: P.cards[st.key].day, due: 0}; S.steps.splice(S.i + 1 + Math.floor(Math.random() * 3), 0, {t: 'revP', p: 'review', key: id + ':p'}); }
+      next(); }); };
+  },
+  /* review: produce (English -> say the Russian) */
+  revP(st){
+    const [id] = st.key.split(':'); const x = it(id);
+    stage(`<p class="cue">Say it in Russian, out loud</p><p class="en lg">${esc(x.en)}</p>
+      <div id="ans" class="hidden col" style="margin:0"><div class="big">${rr(x.ru)}</div>${gateHtml(1)}</div>`);
+    sheet('<button class="btn" id="show">Show answer</button>');
+    $('#show').onclick = () => {
+      $('#ans').classList.remove('hidden');
+      sheet('<p class="cue">Play it and repeat</p>');
+      gate(V().review, x.ru, 1, () => twoButtons(g => { grade(st.key, g); S.revDone++; if (g === 1){ S.revAgain++; again(st, 5); } next(); }));
+    };
+  },
+  learn(st){
+    const x = it(st.id);
+    stage(`<p class="cue">New · listen and repeat</p><div class="big">${rr(x.ru)}</div><p class="en">${esc(x.en)}</p>
+      ${x.note ? `<p class="note">${rr(x.note)}</p>` : ''}${gateHtml(1)}`);
+    sheet('<button class="btn" id="go" disabled>Next</button>');
+    gate(V().learn, x.ru, 1, () => { $('#go').disabled = false; });
+    $('#go').onclick = next;
+  },
+  recall(st){
+    const x = it(st.id), key = st.id + ':r';
+    stage(`<p class="cue">What does it mean?</p><div class="big">${rr(x.ru)}</div><div class="center">${pbtn(V().review, x.ru)}</div>
+      <div id="ans" class="hidden"><p class="en">${esc(x.en)}</p></div>`);
+    play(V().review, x.ru, stageEl.querySelector('.play'));
+    sheet('<button class="btn" id="show">Show</button>');
+    $('#show').onclick = () => { $('#ans').classList.remove('hidden'); twoButtons(g => {
+      if (!P.cards[key]) P.cards[key] = {day: S.dayId};
+      if (!(st.id in S.firstTry)) S.firstTry[st.id] = g;
+      grade(key, g); if (g === 1) again(st, 4); next(); }, ['Forgot', 'Knew it']); };
+  },
+  /* first meeting: English -> pick the Russian (auto-graded, with feedback; no FSRS grade) */
+  match(st){
+    const x = it(st.id), seen = new Set([x.ru]);
+    const pool = [...(S.day.new || []), ...shuffle(Object.values(ITEMS).filter(y => y.day !== S.dayId))]
+      .filter(y => y.id !== x.id && !seen.has(y.ru) && seen.add(y.ru));
+    const opts = shuffle([x, ...shuffle(pool.slice(0, Math.max(3, (S.day.new || []).length - 1))).slice(0, 3)]);
+    stage(`<p class="cue">Which one is it?</p><p class="en lg">${esc(x.en)}</p>
+      <div class="opts">${opts.map(y => `<button class="opt" data-id="${esc(y.id)}">${rr(y.ru)}</button>`).join('')}</div>`);
+    sheet('');
+    const bs = [...stageEl.querySelectorAll('.opt')];
+    bs.forEach(b => b.onclick = () => {
+      const ok = b.dataset.id === x.id;
+      bs.forEach(y => { y.disabled = true; if (y.dataset.id === x.id) y.classList.add('right'); }); if (!ok) b.classList.add('wrong');
+      if (!st.k){ S.match[1]++; if (ok) S.match[0]++; }
+      if (!ok) again(st, 3);
+      fb(ok, {ru: x.ru, v: V().review});
+    });
+  },
+  /* second recall later in the same session (no FSRS grade: the first recall already graded it today) */
+  recall2(st){
+    const x = it(st.id);
+    stage(`<p class="cue">Again, a bit later · what does it mean?</p><div class="big">${rr(x.ru)}</div><div class="center">${pbtn(V().review, x.ru)}</div>
+      <div id="ans" class="hidden"><p class="en">${esc(x.en)}</p></div>`);
+    play(V().review, x.ru, stageEl.querySelector('.play'));
+    sheet('<button class="btn" id="show">Show</button>');
+    $('#show').onclick = () => { $('#ans').classList.remove('hidden'); twoButtons(g => {
+      if (!st.k){ S.late[1]++; if (g === 3) S.late[0]++; }
+      if (g === 1) again(st, 3); next(); }, ['Forgot', 'Knew it']); };
+  },
+  rule(){
+    const g = S.day.extra;
+    stage(`<p class="cue">${esc(g.title)}</p><div class="mid">${rr(g.ru)}</div>
+      <div class="rule">${g.table.map(r => `<span class="a">${rr(r[0])}</span><span class="b">${rr(r[1])}</span><span class="c">${esc(r[2])}</span>`).join('')}</div>
+      ${g.note ? `<p class="note">${rr(g.note)}</p>` : ''}`);
+    sheet('<button class="btn" data-next>Got it</button>');
+  },
+  ginput(st){
+    const q = S.day.extra.input[st.i], order = shuffle(q.opts.map((_, k) => k));
+    stage(`<div class="center"><span class="mid">${rr(q.ru)}</span>${pbtn(V().grammar, q.ru, true)}</div><p class="en">${esc(q.q)}</p>
+      <div class="opts">${order.map(k => `<button class="opt" data-k="${k}">${rr(q.opts[k])}</button>`).join('')}</div>`);
+    play(V().grammar, q.ru);
+    sheet('');
+    const bs = [...stageEl.querySelectorAll('.opt')];
+    bs.forEach(b => b.onclick = () => { const ok = +b.dataset.k === q.a; bs.forEach(x => { x.disabled = true; if (+x.dataset.k === q.a) x.classList.add('right'); }); if (!ok) b.classList.add('wrong'); fb(ok, {why: q.why}); });
+  },
+  produce(st){
+    const q = S.day.extra.produce[st.i]; let tries = 0;
+    stage(`<p class="cue">Type it in Russian</p><p class="en lg">${esc(q.en)}</p><div class="answer" id="box"></div><div id="kb"></div>`);
+    sheet('<button class="btn" id="chk" disabled>Check</button>');
+    const t = typer($('#box'), () => check()); $('#kb').appendChild(t.el);
+    t.onChange(() => { const b = $('#chk'); if (b) b.disabled = !t.value.trim(); });
+    function check(){
+      if (!t.value.trim() || S.fb) return;
+      tries++;
+      const ok = norm(t.value) === norm(q.ru);
+      if (!ok && tries < 2){ sheet(`<div class="fb"><b>Почт<span class="st">и</span></b><p class="note">${rr(q.hint)}</p></div><button class="btn amber" id="chk">Check again</button>`, 'hint'); $('#chk').onclick = check; return; }
+      if (!st.k){ S.gram[1]++; if (ok && tries === 1) S.gram[0]++; }
+      if (!ok) again(st, 3);
+      typing = null;
+      stage(`<p class="cue">${ok ? 'Now say it' : 'Answer · say it'}</p><div class="big">${rr(q.ru)}</div>${ok ? '' : `<p class="note">${rr(q.hint)}</p>`}${gateHtml(1)}`);
+      sheet(`<button class="btn ${ok ? 'good' : 'bad'}" id="go" disabled>Next</button>`, ok ? 'good' : 'bad');
+      gate(V().grammar, q.ru, 1, () => { $('#go').disabled = false; }); $('#go').onclick = next;
+    }
+    $('#chk').onclick = check;
+  },
+  listen(){
+    const x = S.day.extra;
+    stage(`<p class="cue">Listen, no text · ${esc(x.titleEn)}</p><div class="mid">${rr(x.title)}</div>${gateHtml(1)}<p class="note">${esc(x.setup || '')}</p>`);
+    sheet('<button class="btn" id="go" disabled>Questions</button>');
+    gate('@url', AUDIO['story|' + S.dayId], 1, () => { $('#go').disabled = false; }); $('#go').onclick = next;
+  },
+  question(st){
+    const q = S.day.extra.questions[st.i], order = shuffle(q.opts.map((_, k) => k));
+    stage(`<p class="en lg">${esc(q.q)}</p><div class="opts">${order.map(k => `<button class="opt" data-k="${k}">${esc(q.opts[k])}</button>`).join('')}</div>
+      <div class="center">${pbtn('@url', AUDIO['story|' + S.dayId], true)}</div>`);
+    sheet('');
+    const bs = [...stageEl.querySelectorAll('.opt')];
+    bs.forEach(b => b.onclick = () => { const ok = +b.dataset.k === q.a; bs.forEach(x => { x.disabled = true; if (+x.dataset.k === q.a) x.classList.add('right'); }); if (!ok) b.classList.add('wrong'); fb(ok); });
+  },
+  lines(){
+    const L = S.day.extra.lines;
+    stage(`<p class="cue">Play each line and repeat it</p><div class="lines">${L.map((l, k) => `<div class="line" data-l="${k}">
+      <button class="play sm" data-line="${k}" aria-label="Play">${PLAY}</button><div><div class="who">${rr(l.who)}</div><div class="t">${rr(l.ru)}</div><div class="e">${esc(l.en)}</div></div></div>`).join('')}</div>`);
+    sheet(`<button class="btn" id="go" disabled>0 / ${L.length}</button>`);
+    const done = new Set();
+    stageEl.querySelectorAll('[data-line]').forEach(b => b.onclick = async () => {
+      const k = +b.dataset.line; play(L[k].v, L[k].ru, b);
+      done.add(k); stageEl.querySelector(`[data-l="${k}"]`).classList.add('done');
+      const go = $('#go'); go.textContent = done.size === L.length ? 'Next' : `${done.size} / ${L.length}`; go.disabled = done.size < L.length;
+      if (done.size === L.length) S.spoken += L.length;
+    });
+    $('#go').onclick = next;
+  },
+  dictate(st){
+    const d = S.day.extra.dictation[st.i];
+    stage(`<p class="cue">Write what you hear</p><div class="center">${pbtn(d.v, d.ru)}</div><div class="answer" id="box"></div><div id="kb"></div>`);
+    play(d.v, d.ru, stageEl.querySelector('.play'));
+    sheet('<button class="btn" id="chk" disabled>Check</button>');
+    const t = typer($('#box'), () => check()); $('#kb').appendChild(t.el);
+    t.onChange(() => { const b = $('#chk'); if (b) b.disabled = !t.value.trim(); });
+    function check(){
+      if (!t.value.trim() || S.fb) return; typing = null;
+      const r = wordDiff(d.ru, t.value); S.dict[0] += r.ok; S.dict[1] += r.total;
+      stage(`<div class="diff">${r.html}</div><p class="cue">You wrote: ${esc(t.value)}</p>`);
+      fb(r.ok === r.total, {sub: `${r.ok} of ${r.total} words`, ru: d.ru, v: d.v});
+    }
+    $('#chk').onclick = check;
+  },
+  stress(st){
+    const s = st.s;
+    stage(`<p class="cue">Tap the stressed syllable</p><div class="center">${pbtn(st.v, s.w)}</div>
+      <div class="syls">${s.syl.map((x, k) => `<button class="syl" data-k="${k}">${esc(x)}</button>`).join('')}</div><p class="note">${esc(s.en)}</p>`);
+    play(st.v, s.w, stageEl.querySelector('.play'));
+    sheet('');
+    const bs = [...stageEl.querySelectorAll('.syl')];
+    bs.forEach((b, k) => b.onclick = () => { bs.forEach(x => x.disabled = true); bs[s.si].classList.add('right'); if (k !== s.si) b.classList.add('wrong'); fb(k === s.si, {ru: s.w, v: st.v}); });
+  },
+  /* checkpoint: repeat an unseen sentence (elicited imitation), then self-check against the text */
+  imitate(st){
+    const q = S.day.extra.imitate[st.i];
+    stage(`<p class="cue">New sentence · listen, then repeat all of it</p>${gateHtml(1)}<div id="ans" class="hidden"><div class="mid">${rr(q.ru)}</div><p class="note">${esc(q.en)}</p></div>`);
+    sheet('<p class="cue">Listen once, then say it</p>');
+    gate(q.v, q.ru, 1, () => {
+      sheet('<button class="btn" id="show">Show the sentence</button>');
+      $('#show').onclick = () => { $('#ans').classList.remove('hidden'); twoButtons(g => { S.imit[1]++; if (g === 3) S.imit[0]++; next(); }, ['Missed words', 'Said it all']); };
+    });
+  },
+  translate(st){
+    const q = S.day.extra.translate[st.i];
+    stage(`<p class="cue">Type it in Russian</p><p class="en lg">${esc(q.en)}</p><div class="answer" id="box"></div><div id="kb"></div>`);
+    sheet('<button class="btn" id="chk" disabled>Check</button>');
+    const t = typer($('#box'), () => check()); $('#kb').appendChild(t.el);
+    t.onChange(() => { const b = $('#chk'); if (b) b.disabled = !t.value.trim(); });
+    function check(){
+      if (!t.value.trim() || S.fb) return; typing = null;
+      const r = wordDiff(q.ru, t.value); S.trans[0] += r.ok; S.trans[1] += r.total;
+      stage(`<div class="diff">${r.html}</div><p class="cue">You wrote: ${esc(t.value)}</p>`);
+      fb(r.ok === r.total, {sub: `${r.ok} of ${r.total} words`, ru: q.ru, v: V().grammar});
+    }
+    $('#chk').onclick = check;
+  },
+  model(){
+    const m = S.day.speak.model;
+    stage(`<p class="cue">Speak along with it, twice</p><div class="mid">${rr(m.ru)}</div><p class="note">${esc(m.en)}</p>${gateHtml(2)}`);
+    sheet('<button class="btn" id="go" disabled>Next</button>');
+    gate(V().speak, m.ru, 2, () => { $('#go').disabled = false; }); $('#go').onclick = next;
+  },
+  round(st){
+    stage(`<p class="cue">${st.i === 0 ? esc(S.day.speak.prompt) : 'Same again, faster'}</p><div class="timer" id="tm">${st.sec}</div>`);
+    sheet('<button class="btn" id="go">Start</button>');
+    let left = st.sec, h;
+    $('#go').onclick = () => { $('#go').disabled = true; $('#go').textContent = 'Speak…';
+      h = setInterval(() => { const tm = $('#tm'); if (!tm){ clearInterval(h); return; } left--; tm.textContent = Math.max(left, 0);
+        if (left <= 0){ clearInterval(h); tm.classList.add('over'); S.spoken++; sheet('<button class="btn good" data-next>Done</button>'); } }, 1000); };
+  },
+};
+
+/* ============ end of session ============ */
+async function finish(){
+  app.classList.add('home'); hush();
+  let log = null;
+  try {
+    if (S.resumed && !S.skipNew) for (const x of S.day.new || []){
+      const key = x.id + ':r';
+      if (!P.cards[key]){ const n = fsrs.first(3), now = Date.now(); P.cards = {...P.cards, [key]: {...n, day: S.dayId, last: now, due: now + ivl(n.S) * DAY}}; S.touched.add(S.dayId); }
+    }
+    P.meta = {...P.meta, resume: null};
+    if (!P.meta.done.includes(S.dayId) && !S.skipNew) P.meta.done = [...P.meta.done, S.dayId];
+    if (!P.meta.days.includes(today())) P.meta.days = [...P.meta.days, today()];
+    const mins = Math.round((Date.now() - S.start) / 60000);
+    log = {day: S.dayId, date: today(), start: S.start, minutes: mins, touched: [...S.touched], reviews: S.revDone, again: S.revAgain, learned: Object.keys(S.firstTry).length,
+      knewFirst: Object.values(S.firstTry).filter(g => g === 3).length, resumedAt: S.resumedAt || null, grammar: S.gram, dictation: S.dict, imitation: S.imit, translation: S.trans, match: S.match, late: S.late, heardSec: Math.round(S.heard), spoken: S.spoken};
+    const pct = a => a[1] ? Math.round(100 * a[0] / a[1]) + '%' : '–';
+    const isCheck = S.day.extra?.type === 'check';
+    stage(`<div class="col" style="gap:20px;text-align:center"><p class="eyebrow">Day ${S.day.n} done</p>
+      <h1 class="display">Гот<span class="n">о</span>во!</h1>
+      ${isCheck
+        ? `<div class="stats"><div class="stat"><b>${pct(S.dict)}</b><span>dictation</span></div><div class="stat"><b>${pct(S.trans)}</b><span>translation</span></div><div class="stat"><b>${S.imit[0]}/${S.imit[1]}</b><span>repeated</span></div></div>
+           <p class="cue">This week’s score on sentences you had never seen. Now do your AI conversation.</p>`
+        : `<div class="stats"><div class="stat"><b>${log.learned}</b><span>new</span></div><div class="stat"><b>${log.reviews}</b><span>reviewed</span></div><div class="stat"><b>${mins}</b><span>minutes</span></div></div>`}
+      <p class="cue" id="tmr">Saving…</p><div id="sync"></div>
+      <p class="cue">Next: ${isCheck ? '30' : '5'}-minute chat with Claude. ${DB ? 'Type <b>/ru-chat</b> in Claude Code.' : 'Tap <b>Copy for Claude</b>, then paste it in Claude Code (your languages repo).'}</p></div>`);
+  } catch(e){
+    console.error('[finish]', e);
+    stage(`<div class="col" style="gap:20px;text-align:center"><h1 class="display">Гот<span class="n">о</span>во!</h1><p class="cue" id="tmr">Saving…</p><div id="sync"></div></div>`);
+  }
+  sheet('<button class="btn" id="home">Home</button>'); $('#home').onclick = home;
+  let saved;
+  try { saved = await saveProgress(log); } catch(e){ saved = 'save ' + why(e); }
+  if (saved !== 'ok' && saved !== 'phone'){ UPLOAD = saved; if (!S) pendingLine(); }
+  if (!S || !$('#tmr')) return;   // already back on Home
+  const tomorrow = Object.values(P.cards).filter(c => c.due && c.due <= endOfToday() + DAY).length;
+  if (saved === 'ok'){ $('#tmr').textContent = `Saved ✓ Tomorrow: ${tomorrow} reviews${S.skipNew ? '' : ' + new words'}`; return; }
+  $('#tmr').innerHTML = saved === 'phone' ? `Saved on this phone ✓ Tomorrow: ${tomorrow} reviews.`
+    : `<span class="warn">Not saved online (${esc(saved)}).</span> It’s kept on this phone. Copy it and paste it to Claude so nothing is lost.`;
+  $('#sync').innerHTML = '<textarea class="code" id="code" rows="4" inputmode="none" spellcheck="false"></textarea>';
+  sheet('<div class="row2"><button class="btn amber" id="cp">Copy for Claude</button><button class="btn ghost" id="home">Home</button></div>');
+  $('#home').onclick = home;
+  $('#cp').onclick = () => copyCode(resultsCode(saved), $('#cp'), $('#code'));
+}
+
+/* ============ AI conversation prompt (built from what you actually know) ============ */
+/* Template follows research_notes/Resources and AI conversation §2.7: a task with a goal, 1–2 target structures,
+   correct forms written by us (not the AI), elicit-before-correct ladder, report with an export block. */
+function conversationPrompt(mode){
+  const known = Object.keys(P.cards).filter(k => k.endsWith(':r') && P.cards[k].reps).map(k => it(k.split(':')[0])).filter(Boolean);
+  const weak = known.filter(x => (P.cards[x.id + ':r'].lapses || 0) > 0).slice(0, 10);
+  const doneDays = P.meta.done.map(id => DAYS[id]).filter(Boolean);
+  const grammar = [...new Set(doneDays.flatMap(d => d.grammarKnown || []))];
+  const weeks = C.weeks || [];
+  const w = weeks[Math.min(weeks.length - 1, Math.max(0, Math.floor((doneDays.length - 1) / 7)))] || {};
+  const words = known.map(x => plain(x.ru).replace(/[!?.…]/g, '')).join(', ');
+  const voice = `
+VOICE MODE:
+- Speak slowly, with a clear pause between sentences. One sentence per turn during the first 5 minutes.
+- If I say "повтори", repeat exactly, slower. If I say "медленнее", slow down for the rest of the session.
+- Wait for me; do not finish my sentences.
+- Speech recognition may "fix" my endings, so you may not hear my real errors. For each target structure, at least once ask me to TYPE the sentence.
+- In the report, under A, list my sentences as you heard them, and mark any where you were unsure what I said.`;
+  const text = `
+TEXT MODE: Put an acute stress mark on every Russian word of two or more syllables (молоко́) and always write ё. I will read your messages and my answers aloud.`;
+  return `You are my Russian conversation partner for one 30-minute practice session.
+I am an adult beginner (CEFR A1). I read Cyrillic. My support language is English.
+
+=== THIS SESSION ===
+Task: ${w.task || 'We meet at a party. Greet me, ask my name and how I am, then ask about another guest: his or her name.'}
+Goal I must reach: ${w.goal || 'introduce myself, ask your name, and say the name of someone else'}
+Target structures (the ONLY things you correct during the task):
+${(w.targets || ['ты vs вы: тебя / вас (Как тебя зовут? Как вас зовут?)', 'меня / тебя / его / её + зовут']).map((t, i) => `  ${i + 1}. ${t}`).join('\n')}
+Correct forms and the mistakes I usually make (trust this, not your own guess):
+  ${w.forms || 'Меня зовут … (not "Я зовут"). Её зовут Маша (not "Она зовут"). Здравствуйте is formal, Привет informal.'}
+New words you may introduce (max 5): ${w.newWords || 'any 5 useful ones'}
+Facts about me from earlier sessions: ${w.facts || 'none yet'}
+Warm-up questions from last session's report: ${w.warmup || 'none yet: start with a greeting'}${weak.length ? `\nWords I keep forgetting (make me use them): ${weak.map(x => plain(x.ru)).join(', ')}` : ''}
+
+=== WHAT I KNOW ===
+Words I know (${known.length}): ${words || 'only greetings so far'}
+Grammar I know: ${grammar.length ? grammar.join('; ') : 'greetings; я/ты/вы/он/она; меня/тебя/вас/его/её зовут'}
+
+=== HOW YOU SPEAK ===
+- Use only words from my list, the new words above, names and obvious international words.
+  If you must use another word, add the English in brackets right after it, once.
+- Each turn: 1–2 short sentences (about 8 words max each), then ONE simple question. Present tense unless the targets say otherwise.
+- I should talk more than you. No lectures, no lists, no long praise.
+- If I write "?" or "не понимаю": say the same thing again more simply in Russian. Only if I ask a second time, give the English.
+- If I use an English word or ask "как сказать …?": give the Russian word, then ask me to say my whole sentence again in Russian.
+- Stay in the role-play until the goal is reached; then start the same task again with one change.
+
+=== HOW YOU CORRECT ===
+- During the task, correct ONLY the target structures, or an error that makes my meaning unclear. Note every other error silently for the report.
+- At most one correction per turn. Use this ladder and wait for my answer at each step:
+  Step 1 – Let me find it: repeat my sentence up to the error and stop, or say "Почти! Ещё раз?"
+  Step 2 – If I am still wrong: one clue in English, max 10 words.
+  Step 3 – If I am still wrong: give the correct sentence and ask me to say it once more.
+  Then carry on, and within the next few turns ask something that makes me use the same form again.
+- Never explain grammar for more than one sentence during the task. If you are not sure a rule is right, say "(not sure)".
+- Say "Да!" or "Отлично!" only when I fix something myself.
+
+=== SESSION PLAN ===
+1. Warm-up (3 min): the warm-up questions above, one at a time.
+2. Task (15 min).
+3. Same task again with one change (7 min).
+4. When I write or say "КОНЕЦ", stop and write the report below.
+
+=== REPORT (English, Russian with stress marks) ===
+A. Corrections: up to 8, most important first, as a table:
+   what I said | correct version | why (max 10 words) | type (ending / verb form / word choice / word order / stress)
+   Include only corrections you are sure of; mark doubtful ones "(check)". Never invent errors.
+B. Words I asked for or you introduced, with stress and English.
+C. Two specific things I did well.
+D. Three short sentences for me to practise before next time, using the corrected forms.
+E. New facts about me to remember next session (one line each).
+F. Export block: the items from A, B and D as JSON lines in this exact format, with "+" before the stressed vowel:
+   { "id": "short-latin-id", "ru": "Мен+я зов+ут +Анна.", "en": "My name is Anna.", "note": "меня + зовут" }
+${mode === 'voice' ? voice : text}
+
+Start now with the warm-up, in Russian.`;
+}
+function promptScreen(){
+  let mode = P.meta.chatMode || 'voice';
+  app.classList.add('home');
+  const draw = () => {
+    const text = conversationPrompt(mode);
+    stage(`<div class="col" style="gap:14px"><p class="eyebrow">Weekly conversation</p>
+      <div class="seg"><button data-m="voice" class="${mode === 'voice' ? 'on' : ''}">Voice</button><button data-m="text" class="${mode === 'text' ? 'on' : ''}">Text</button></div>
+      <p class="cue" style="text-align:left">Paste into your AI chat. Say КОНЕЦ to finish, then send the report to Claude.</p>
+      <div class="prompt" id="ptxt">${esc(text)}</div></div>`);
+    stageEl.querySelectorAll('[data-m]').forEach(b => b.onclick = () => { mode = b.dataset.m; P.meta.chatMode = mode; draw(); });
+    sheet('<div class="row2"><button class="btn ghost" id="back">Back</button><button class="btn" id="copy">Copy prompt</button></div>');
+    $('#back').onclick = home;
+    $('#copy').onclick = async () => {
+      try { await navigator.clipboard.writeText(text); $('#copy').textContent = 'Copied'; }
+      catch(e){ const r = document.createRange(); r.selectNodeContents($('#ptxt')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); $('#copy').textContent = 'Selected: copy it'; }
+    };
+  };
+  draw();
+}
+
+/* ============ home ============ */
+/* ============ my words: every word learned so far, and extra practice (no FSRS grades, never marks a day done) ============ */
+// Learned = has a recognition card that was graded at least once. Weakest first: lapses, then low stability.
+function learned(){
+  return Object.entries(P.cards).filter(([k, c]) => k.endsWith(':r') && c.reps && ITEMS[k.split(':')[0]])
+    .map(([k, c]) => ({x: ITEMS[k.split(':')[0]], c}))
+    .sort((a, b) => (b.c.lapses || 0) - (a.c.lapses || 0) || (a.c.S || 0) - (b.c.S || 0) || (b.c.last || 0) - (a.c.last || 0));
+}
+function wordsScreen(){
+  hush(); S = null; app.classList.add('home');
+  const L = learned(), byDay = {};
+  L.forEach(w => (byDay[w.x.day] = byDay[w.x.day] || []).push(w.x));
+  const days = C.days.filter(d => byDay[d]).reverse();
+  let hide = false;
+  const draw = () => {
+    stage(`<div class="col" style="gap:14px"><p class="eyebrow">My words · ${L.length}</p>
+      <button class="link" id="hide">${hide ? 'Show English' : 'Hide English (test yourself)'}</button>
+      ${days.map(d => `<p class="cue" style="text-align:left;margin-top:8px">Day ${+d.slice(1)}</p><div class="plan">${byDay[d].map(x =>
+        `<div><span style="display:flex;gap:10px;align-items:center">${pbtn(V().review, x.ru, true)}<span>${rr(x.ru)}</span></span><span class="wen${hide ? ' hidden' : ''}">${esc(x.en)}</span></div>`).join('')}</div>`).join('')}</div>`);
+    $('#hide').onclick = () => { hide = !hide; draw(); };
+    stageEl.querySelectorAll('.wen').forEach(e => e.parentElement.onclick = ev => { if (!ev.target.closest('.play')) e.classList.toggle('hidden'); });
+  };
+  draw();
+  sheet(`<div class="row2"><button class="btn ghost" id="back">Back</button><button class="btn" id="prac">Practise ${Math.min(PRACTICE_N, L.length)} words</button></div>`);
+  $('#back').onclick = home; $('#prac').onclick = () => { S = practiceSession(); show(); };
+}
+const PRACTICE_N = 12;
+// The weakest learned words: pick the Russian for each, then recall each again (same formats as new words).
+function practiceSession(){
+  const ws = learned().slice(0, PRACTICE_N).map(w => w.x), steps = [];
+  shuffle(ws).forEach(x => steps.push({t: 'match', p: 'practice', id: x.id}));
+  shuffle(ws).forEach(x => steps.push({t: 'recall2', p: 'practice', id: x.id}));
+  return {practice: true, dayId: 'practice', day: {new: ws}, steps, i: 0, fb: false, touched: new Set(), heard: 0, spoken: 0, firstTry: {}, match: [0, 0], late: [0, 0], start: Date.now()};
+}
+function practiceEnd(){
+  hush(); app.classList.add('home');
+  const n = S.late[1], ok = S.late[0], m = S.match;
+  stage(`<div class="col" style="gap:20px;text-align:center"><p class="eyebrow">Practice done</p><h1 class="display">Гот<span class="n">о</span>во!</h1>
+    <div class="stats"><div class="stat"><b>${m[0]}/${m[1]}</b><span>picked right</span></div><div class="stat"><b>${ok}/${n}</b><span>remembered</span></div></div>
+    <p class="cue">Practice doesn’t change your reviews. Do it as often as you like.</p></div>`);
+  sheet('<div class="row2"><button class="btn ghost" id="again">Practise again</button><button class="btn" id="home">Home</button></div>');
+  $('#home').onclick = home; $('#again').onclick = () => { S = practiceSession(); show(); };
+}
+
+async function home(){
+  hush(); S = null; typing = null; app.classList.add('home');
+  const dayId = currentDayId(), day = await loadDay(dayId);
+  await Promise.all(C.days.slice(0, C.days.indexOf(dayId)).map(loadDay));
+  const due = Object.entries(P.cards).filter(([k, c]) => c.due <= endOfToday() && ITEMS[k.split(':')[0]]).length;
+  const extra = day.extra ? {grammar: 'Grammar', story: 'Story', sounds: 'Sounds', check: 'Checkpoint'}[day.extra.type] : null;
+  const allDone = P.meta.done.includes(dayId) && C.days.indexOf(dayId) === C.days.length - 1;
+  stage(`<div class="col" style="gap:22px"><p class="eyebrow">Russian${P.meta.days.length ? ` · ${P.meta.days.length} day${P.meta.days.length > 1 ? 's' : ''} studied` : ''}</p>
+    <h1 class="display">День <span class="n">${day.n}</span></h1>
+    <div class="mid" style="text-align:left">${rr(day.title)} <span class="cue">· ${esc(day.titleEn)}</span></div>
+    <div class="plan">${due ? `<div><span>Review</span><span>${Math.min(due, C.limits.maxReviews)}</span></div>` : ''}
+      ${due > C.limits.pauseNewAbove ? '' : `<div><span>New words</span><span>${(day.new || []).length}</span></div>`}
+      ${extra ? `<div><span>${extra}</span><span>${esc(day.extra.titleEn || day.extra.title || '')}</span></div>` : ''}
+      ${day.speak ? '<div><span>Speak</span><span>2 min</span></div>' : ''}</div>
+    <div class="links">${learned().length ? `<button class="link" id="words">My words (${learned().length}) · practise</button>` : ''}<button class="link" id="chat">Weekly AI conversation prompt</button>
+      ${(day.watch || []).map(w => `<a class="link" href="${esc(w.url)}" target="_blank" rel="noopener">${esc(w.label)} ↗</a>`).join('')}</div>
+    <div id="pend" class="col" style="gap:10px;margin:0"></div>
+    <p class="cue ver">${VERSION} · ${DB ? 'saving online' : REPO ? 'progress from GitHub ✓' : '<span class="warn">GitHub copy not loaded (offline?)</span>'}</p></div>`);
+  const rs = !allDone && P.meta.resume?.day === dayId && P.meta.resume.part !== 'review' ? P.meta.resume.part : null;
+  sheet(allDone ? `<p class="cue">All built days are done. Ask Claude to build the next week.</p>${due ? `<button class="btn" id="rev">Review ${Math.min(due, C.limits.maxReviews)} words</button>` : ''}`
+    : rs ? `<button class="btn" id="cont">Continue from ${esc(PARTS[rs])}</button><button class="btn ghost" id="go">Start the day over</button>` : `<button class="btn" id="go">Start</button>`);
+  if ($('#go')) $('#go').onclick = async () => { S = await buildSession(); show(); };
+  if ($('#words')) $('#words').onclick = wordsScreen;
+  if ($('#cont')) $('#cont').onclick = async () => {
+    S = await buildSession();
+    const at = S.steps.findIndex(st => st.p === rs);
+    if (at > 0){ S.steps = S.steps.slice(at); S.resumed = true; S.resumedAt = rs; }
+    show();
+  };
+  if ($('#rev')) $('#rev').onclick = async () => { S = await buildSession(true); S.steps = S.steps.filter(st => st.p === 'review'); show(); };
+  $('#chat').onclick = promptScreen;
+  pendingLine();
+}
+
+$('#quit').onclick = () => {
+  if (!S) return home();
+  const wasFb = S.fb; hush();
+  sheet(`<p class="cue">Leave? Today’s progress won’t be saved.</p><div class="row2"><button class="btn ghost" id="stay">Stay</button><button class="btn bad" id="leave">Leave</button></div>`);
+  $('#leave').onclick = home; $('#stay').onclick = () => wasFb ? next() : show();
+};
+document.addEventListener('keydown', e => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  if (typing && document.body.contains(typing.el)){ if (typing.key(e)) e.preventDefault(); return; }
+  if (e.key === 'Enter' && document.activeElement?.tagName !== 'BUTTON'){ const b = sheetEl.querySelector('.btn:not(:disabled):not(.ghost)'); if (b){ b.click(); e.preventDefault(); } }
+});
+
+/* ============ boot ============ */
+// Any error the learner sees comes with a block to paste to Claude (what failed, where, app version, device).
+function showError(e, where){
+  console.error('[' + where + ']', e);
+  const text = 'RU-APP-ERROR ' + JSON.stringify({v: VERSION, where, error: String((e && (e.stack || e.message)) || e).slice(0, 1500), url: location.href, ua: navigator.userAgent.slice(0, 160), when: new Date().toISOString()});
+  app.classList.add('home');
+  stage(`<div class="col" style="gap:16px"><h1 class="display" style="font-size:32px">Something broke</h1>
+    <p class="cue" style="text-align:left">Your progress is safe on this phone. Copy this and paste it to Claude Code, which will fix it.</p>
+    <textarea class="code" id="ecode" rows="5" inputmode="none" spellcheck="false"></textarea></div>`);
+  sheet('<div class="row2"><button class="btn amber" id="ecp">Copy for Claude</button><button class="btn ghost" id="erl">Reload</button></div>');
+  $('#ecp').onclick = () => copyCode(text, $('#ecp'), $('#ecode'));
+  $('#erl').onclick = () => location.reload();
+}
+window.addEventListener('unhandledrejection', ev => { if (!SELFTEST) showError(ev.reason, 'unhandled'); });
+(async function boot(){
+  stage('<p class="cue">Loading…</p>');
+  try { C = await getJson('course.json'); }
+  catch(e){ stage('<p class="cue">Couldn’t load the course. Check your connection and reload.</p><button class="btn" onclick="location.reload()">Reload</button>'); return; }
+  try {
+    const use = window.claude?.use;
+    if (!use) DBWHY = 'no claude runtime';
+    else { DB = await Promise.race([use('db'), new Promise(r => setTimeout(() => r(null), 10000))]); if (!DB) DBWHY = 'db not offered'; }
+  } catch(e){ DB = null; DBWHY = 'db ' + why(e); }
+  try {
+    if (!DB) await loadRepo();
+    await loadProgress();
+    await home();
+  } catch(e){ showError(e, 'start'); return; }
+  if (SELFTEST) selftest();
+})();
+
+/* ============ self-test: every step of every day not done yet, audio coverage, the end of a day ============ */
+async function selftest(){
+  const out = [], check = (c, m) => out.push((c ? 'ok   ' : 'FAIL ') + m);
+  const missing = new Set(), need = (v, t) => { if (v !== '@url' && !src(v, t)) missing.add(v + '|' + t); };
+  const play0 = play, gate0 = gate;
+  play = (v, t, b) => { need(v, t); return Promise.resolve(true); };
+  gate = (v, t, ...a) => { need(v, t); return gate0(v, t, ...a); };
+  const done0 = [...P.meta.done];
+  try {
+    check(C.days.length > 0, `course.json: ${C.days.length} days`);
+    check(!!REPO, 'progress.json loaded' + (REPO ? ` (${(REPO.meta?.done || []).length} days done)` : ''));
+    check(/День/.test($('.display')?.textContent || ''), 'home screen renders');
+    const first = C.days.find(id => !done0.includes(id)) || C.days[C.days.length - 1];
+    for (const id of C.days.slice(C.days.indexOf(first))){
+      P.meta.done = C.days.slice(0, C.days.indexOf(id));
+      try { S = await buildSession(); } catch(e){ check(false, `${id}: can't build the session: ${e.message}`); continue; }
+      let bad = 0; missing.clear();
+      for (let i = 0; i < S.steps.length; i++){
+        S.i = i;
+        try { show(); stageEl.querySelectorAll('.play[data-v]').forEach(b => need(b.dataset.v, b.dataset.t)); }
+        catch(e){ bad++; check(false, `${id} step ${i + 1} (${S.steps[i].t}): ${e.message}`); }
+      }
+      check(!bad, `${id}: all ${S.steps.length} steps render`);
+      check(!missing.size, `${id}: every sound exists` + (missing.size ? ` (missing: ${[...missing].slice(0, 5).join('; ')})` : ''));
+    }
+    hush(); play = play0;
+    // the steps added from d07: a matching round and a later recall, and none before d07
+    if (C.days.includes(NEW_STEPS_FROM)){
+      const at = C.days.indexOf(NEW_STEPS_FROM);
+      P.meta.done = C.days.slice(0, at); S = await buildSession();
+      const n = (S.day.new || []).length;
+      check(S.steps.filter(x => x.t === 'match').length === n && S.steps.filter(x => x.t === 'recall2').length === n, `${NEW_STEPS_FROM}: ${n} matching + ${n} later-recall steps`);
+      const mi = S.steps.findIndex(x => x.t === 'match'); S.i = mi; show();
+      const right = stageEl.querySelector(`.opt[data-id="${S.steps[mi].id}"]`);
+      check(stageEl.querySelectorAll('.opt').length >= 2 && !!right, 'a matching step shows the answer among the options');
+      right.click(); check(S.match[0] === 1 && /Верно|Отлично|Точно/.test(sheetEl.textContent), 'picking the right one counts and says so');
+      hush();
+      if (at > 0){ P.meta.done = C.days.slice(0, at - 1); S = await buildSession(); check(!S.steps.some(x => x.t === 'match' || x.t === 'recall2'), `${C.days[at - 1]}: unchanged (no new steps)`); }
+    }
+    P.meta.done = [...done0];
+    // first review the next day, not after 3 days
+    { const c0 = P.cards, k = 'selftest:r'; P.cards = {[k]: {S: 3.173, D: 5.28, reps: 1, lapses: 0, day: 'd01', last: Date.now(), due: Date.now() + 3 * DAY}};
+      firstSteps(); check(P.cards[k].due === P.cards[k].last + DAY, 'a card seen once comes back the next day'); P.cards = c0; }
+    // My words + practice: renders, never marks a day done, no "Continue from"
+    if (learned().length){
+      await home(); check(!!$('#words'), 'Home has "My words"');
+      const meta0 = JSON.stringify(P.meta), cards0 = JSON.stringify(P.cards);
+      wordsScreen(); check(stageEl.querySelectorAll('.plan > div').length === learned().length, `My words lists all ${learned().length} learned words`);
+      S = practiceSession(); let bad = 0;
+      for (let i = 0; i < S.steps.length; i++){ S.i = i; try { show(); } catch(e){ bad++; check(false, `practice step ${i + 1}: ${e.message}`); } }
+      check(!bad && S.steps.length === 2 * Math.min(PRACTICE_N, learned().length), `practice: all ${S.steps.length} steps render`);
+      S.i = S.steps.length; show(); hush();
+      check(/Practice done/.test(stageEl.textContent) && JSON.stringify(P.meta) === meta0 && JSON.stringify(P.cards) === cards0, 'practice ends without changing progress or the day');
+    } else check(false, 'no learned words to test My words with');
+    S = await buildSession();
+    const nw = S.day.new?.[0]?.id;
+    if (nw){ grade(nw + ':r', 3); S.firstTry[nw] = 3; }
+    S.i = S.steps.length; await finish();
+    check(/Saved on this phone/.test($('#tmr')?.textContent || ''), `${S.dayId}: the end screen says "Saved on this phone"`);
+    check(!!$('#cp'), 'the end screen has Copy for Claude');
+    const r = JSON.parse(resultsCode('phone').slice('RU-RESULTS '.length));
+    check(r.logs.length === 1 && r.logs[0].day === S.dayId, 'the Copy block has the day\'s log');
+    check(Object.keys(r.cards).length >= 1 && r.meta.done.includes(S.dayId), 'the Copy block has the cards and marks the day done');
+    const u = Object.values(AUDIO)[0], a = u ? await fetch(u) : null;
+    check(!!a && a.ok, 'audio files are served');
+    // every built day done: Home offers reviews only
+    P.meta.done = [...C.days];
+    const last = C.days[C.days.length - 1], k = Object.keys(P.cards).find(x => ITEMS[x.split(':')[0]]);
+    if (k) P.cards[k] = {...P.cards[k], due: Date.now() - 1000};
+    await home();
+    check(!$('#go') && !!$('#rev'), 'all days done: Home shows "Review" instead of Start');
+    S = await buildSession(true); S.steps = S.steps.filter(st => st.p === 'review');
+    check(S.steps.length > 0 && S.steps.every(st => st.p === 'review'), 'the review-only session has only reviews');
+    try { show(); check(true, 'a review step renders'); } catch(e){ check(false, 'review step: ' + e.message); }
+    hush(); S = null;
+    showError(new Error('self-test'), 'selftest');
+    check(!!$('#ecp') && /Something broke/.test(stageEl.textContent), 'the error screen shows Copy for Claude');
+  } catch(e){ check(false, 'exception: ' + (e.stack || e.message)); }
+  play = play0; gate = gate0;
+  const ok = !out.some(l => l.startsWith('FAIL'));
+  document.body.insertAdjacentHTML('beforeend', `<pre id="selftest">SELFTEST ${ok ? 'OK' : 'FAIL'}\n${esc(out.join('\n'))}</pre>`);
+  console.log('SELFTEST ' + (ok ? 'OK' : 'FAIL') + '\n' + out.join('\n'));
+}
+</script>
+
+</html>

@@ -1,0 +1,63 @@
+{
+ "lang": "ru",
+ "title": "Russian Daily",
+ "voices": {
+  "learn": "irina",
+  "review": "dmitri",
+  "grammar": "ruslan",
+  "speak": "denis",
+  "all": [
+   "irina",
+   "dmitri",
+   "denis",
+   "ruslan"
+  ]
+ },
+ "limits": {
+  "maxReviews": 45,
+  "pauseNewAbove": 70
+ },
+ "days": [
+  "d01",
+  "d02",
+  "d03",
+  "d04",
+  "d05",
+  "d06",
+  "d07",
+  "d08",
+  "d09",
+  "d10",
+  "d11",
+  "d12",
+  "d13",
+  "d14"
+ ],
+ "weeks": [
+  {
+   "task": "We meet at a party. Greet me, ask my name and how I am. Then show me a photo of your family and ask about mine: who is who, and what are their names.",
+   "goal": "introduce myself, ask your name, and name 3 people in my family",
+   "targets": [
+    "меня / тебя / вас / его / её + зовут",
+    "мой / моя / мои + family word (мой папа, моя мама, мои дети)"
+   ],
+   "forms": "Меня зовут… (not \"Я зовут\"). Её зовут Маша (not \"Она зовут\"). Моя мама, мой папа (папа ends in -а but is masculine), мои дети. Здравствуйте is formal, Привет informal.",
+   "newWords": "семья, фото, тоже",
+   "facts": "",
+   "warmup": ""
+  },
+  {
+   "task": "We meet at an international party. Find out my name, my nationality and which languages I speak, and tell me yours. Then describe two people you know: who they are, their nationality, and what they are like.",
+   "goal": "say your nationality and languages, ask me 3 questions, and describe 2 people with the right endings",
+   "targets": [
+    "adjective endings match the noun: высокий брат, высокая сестра, высокие дети",
+    "говорить: говорю, говоришь, говорит, говорим, говорите, говорят + по-русски",
+    "этот / эта / эти + noun (and Это… alone = this is)"
+   ],
+   "forms": "Она русская / он русский. Папа высокий (папа and мужчина are masculine). Я говорю по-русски (not \"говорю русский\"). Вы говорите…? (formal). Эта женщина, этот мужчина, эти люди.",
+   "newWords": "понимаю (I understand), медленно (slowly), по-французски",
+   "facts": "",
+   "warmup": "Как дела? Как тебя зовут? Кто это? (a family photo)"
+  }
+ ]
+}

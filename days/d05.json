@@ -1,0 +1,256 @@
+{
+ "n": 5,
+ "id": "d05",
+ "lesson": 3,
+ "title": "У мен+я есть",
+ "titleEn": "I have",
+ "new": [
+  {
+   "id": "chat-u-menya-vsyo-khorosho",
+   "ru": "У мен+я всё хорош+о.",
+   "en": "I'm fine. / All good.",
+   "note": "from your chat, 2026-11-15: say this, not «Я хорошо»"
+  },
+  {
+   "id": "u-menya-est",
+   "ru": "У мен+я есть…",
+   "en": "I have…",
+   "note": "literally “by me there is”"
+  },
+  {
+   "id": "u-tebya-est",
+   "ru": "У теб+я есть…?",
+   "en": "Do you have…? (informal)"
+  },
+  {
+   "id": "da-est",
+   "ru": "Да, есть.",
+   "en": "Yes, I do."
+  },
+  {
+   "id": "dom",
+   "ru": "дом",
+   "en": "house, home"
+  },
+  {
+   "id": "mashina",
+   "ru": "маш+ина",
+   "en": "car"
+  },
+  {
+   "id": "sobaka",
+   "ru": "соб+ака",
+   "en": "dog",
+   "note": "feminine: её зов+ут…"
+  },
+  {
+   "id": "kot",
+   "ru": "кот",
+   "en": "cat (male)"
+  },
+  {
+   "id": "rabota",
+   "ru": "раб+ота",
+   "en": "work, job"
+  },
+  {
+   "id": "kniga",
+   "ru": "кн+ига",
+   "en": "book"
+  },
+  {
+   "id": "i",
+   "ru": "и",
+   "en": "and"
+  },
+  {
+   "id": "no",
+   "ru": "но",
+   "en": "but"
+  }
+ ],
+ "extra": {
+  "type": "story",
+  "title": "Соб+ака и кот",
+  "titleEn": "The dog and the cat",
+  "setup": "Ivan and Masha talk about what they have.",
+  "lines": [
+   {
+    "who": "Ив+ан",
+    "v": "dmitri",
+    "ru": "М+аша, у теб+я есть маш+ина?",
+    "en": "Masha, do you have a car?"
+   },
+   {
+    "who": "М+аша",
+    "v": "irina",
+    "ru": "Да, есть. А у теб+я?",
+    "en": "Yes, I do. And you?"
+   },
+   {
+    "who": "Ив+ан",
+    "v": "dmitri",
+    "ru": "Нет. Но у мен+я есть соб+ака.",
+    "en": "No. But I have a dog."
+   },
+   {
+    "who": "М+аша",
+    "v": "irina",
+    "ru": "Соб+ака? Как её зов+ут?",
+    "en": "A dog? What’s her name?"
+   },
+   {
+    "who": "Ив+ан",
+    "v": "dmitri",
+    "ru": "Её зов+ут Б+елка.",
+    "en": "Her name is Belka."
+   },
+   {
+    "who": "М+аша",
+    "v": "irina",
+    "ru": "А у мен+я есть кот. Ег+о зов+ут Бор+ис.",
+    "en": "And I have a cat. His name is Boris."
+   },
+   {
+    "who": "Ив+ан",
+    "v": "dmitri",
+    "ru": "У теб+я есть раб+ота?",
+    "en": "Do you have a job?"
+   },
+   {
+    "who": "М+аша",
+    "v": "irina",
+    "ru": "Да, есть. А у теб+я?",
+    "en": "Yes, I do. And you?"
+   },
+   {
+    "who": "Ив+ан",
+    "v": "dmitri",
+    "ru": "Нет. Но у мен+я есть кн+ига!",
+    "en": "No. But I have a book!"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Who has a car?",
+    "opts": [
+     "Masha",
+     "Ivan",
+     "Both"
+    ],
+    "a": 0
+   },
+   {
+    "q": "What is the dog called?",
+    "opts": [
+     "Belka",
+     "Boris",
+     "Masha"
+    ],
+    "a": 0
+   },
+   {
+    "q": "Who is Boris?",
+    "opts": [
+     "Masha’s cat",
+     "Ivan’s dog",
+     "Masha’s brother"
+    ],
+    "a": 0
+   },
+   {
+    "q": "Does Ivan have a job?",
+    "opts": [
+     "No",
+     "Yes",
+     "He doesn’t say"
+    ],
+    "a": 0
+   }
+  ],
+  "dictation": [
+   {
+    "ru": "У мен+я есть маш+ина.",
+    "v": "irina"
+   },
+   {
+    "ru": "Её зов+ут Б+елка.",
+    "v": "dmitri"
+   },
+   {
+    "ru": "У теб+я есть раб+ота?",
+    "v": "dmitri"
+   }
+  ]
+ },
+ "speak": {
+  "prompt": "Say what you have: a car? a dog? a cat?",
+  "model": {
+   "ru": "У мен+я есть дом и маш+ина. А у теб+я?",
+   "en": "I have a house and a car. And you?"
+  },
+  "rounds": [
+   45,
+   30
+  ]
+ },
+ "watch": [
+  {
+   "label": "Nastya · Grammar course: У меня есть",
+   "url": "https://www.youtube.com/watch?v=5NLg2PZxROE"
+  },
+  {
+   "label": "Nastya · Day 3 lesson",
+   "url": "https://www.youtube.com/watch?v=ZXiTv-Ydtbc"
+  }
+ ],
+ "grammarKnown": [
+  "У меня есть… / У тебя есть…? (I have / do you have)"
+ ],
+ "chat": {
+  "scenario": "We compare what we have: a car, a dog, a cat, a house, a job, a book.",
+  "goal": "ask 3 questions with У тебя есть…? and answer 3",
+  "targets": [
+   "У меня есть… / У тебя есть…?",
+   "Да, есть."
+  ],
+  "forms": "У меня есть машина (not \"Я есть машина\" or \"Я имею\"). Yes = Да, есть. For \"no\", a plain Нет is fine for now (the genitive comes later)."
+ },
+ "audio": {
+  "irina|У мен+я всё хорош+о.": "audio/007630eefe61.mp3",
+  "dmitri|У мен+я всё хорош+о.": "audio/608d915feff4.mp3",
+  "irina|У мен+я есть…": "audio/b4927869ef51.mp3",
+  "dmitri|У мен+я есть…": "audio/a3b644a21a90.mp3",
+  "irina|У теб+я есть…?": "audio/c586bdacc356.mp3",
+  "dmitri|У теб+я есть…?": "audio/fa6a5ad09408.mp3",
+  "irina|Да, есть.": "audio/ccedbe382f09.mp3",
+  "dmitri|Да, есть.": "audio/c11e1b22865e.mp3",
+  "irina|дом": "audio/c39c26e35d3d.mp3",
+  "dmitri|дом": "audio/c8b94643d23d.mp3",
+  "irina|маш+ина": "audio/e81790f5b06b.mp3",
+  "dmitri|маш+ина": "audio/510d95e1e35c.mp3",
+  "irina|соб+ака": "audio/3025f7ef3a7d.mp3",
+  "dmitri|соб+ака": "audio/d85b68c552bf.mp3",
+  "irina|кот": "audio/5b3d7a6dbd90.mp3",
+  "dmitri|кот": "audio/4d6b53c62aec.mp3",
+  "irina|раб+ота": "audio/5d5cef902144.mp3",
+  "dmitri|раб+ота": "audio/0065b09d8cb5.mp3",
+  "irina|кн+ига": "audio/818617603eae.mp3",
+  "dmitri|кн+ига": "audio/7f3f3602b07d.mp3",
+  "irina|и": "audio/c87d4c395d3e.mp3",
+  "dmitri|и": "audio/0237f0a15c94.mp3",
+  "irina|но": "audio/cb363f7ddfb2.mp3",
+  "dmitri|но": "audio/54d5ec668bbf.mp3",
+  "dmitri|М+аша, у теб+я есть маш+ина?": "audio/ef2a3ae9e88c.mp3",
+  "irina|Да, есть. А у теб+я?": "audio/8f3789bf0111.mp3",
+  "dmitri|Нет. Но у мен+я есть соб+ака.": "audio/5a79e1d6596d.mp3",
+  "irina|Соб+ака? Как её зов+ут?": "audio/503de75d83bc.mp3",
+  "dmitri|Её зов+ут Б+елка.": "audio/74922b26eb1e.mp3",
+  "irina|А у мен+я есть кот. Ег+о зов+ут Бор+ис.": "audio/7c6d9985c160.mp3",
+  "dmitri|У теб+я есть раб+ота?": "audio/ef66af38bde5.mp3",
+  "dmitri|Нет. Но у мен+я есть кн+ига!": "audio/c34ead690cd4.mp3",
+  "irina|У мен+я есть маш+ина.": "audio/ceb65cd265a1.mp3",
+  "denis|У мен+я есть дом и маш+ина. А у теб+я?": "audio/8382d6a7e2a2.mp3",
+  "story|d05": "audio/story-d05-03e55b14.mp3"
+ }
+}

@@ -1,0 +1,235 @@
+{
+ "n": 12,
+ "id": "d12",
+ "lesson": 4,
+ "title": "+Этот, +эта",
+ "titleEn": "This and that",
+ "new": [
+  {
+   "id": "etot",
+   "ru": "+этот",
+   "en": "this (with a “he” noun)",
+   "note": "+этот дом"
+  },
+  {
+   "id": "eta",
+   "ru": "+эта",
+   "en": "this (with a “she” noun)",
+   "note": "+эта маш+ина"
+  },
+  {
+   "id": "eti",
+   "ru": "+эти",
+   "en": "these",
+   "note": "+эти д+ети"
+  },
+  {
+   "id": "tot",
+   "ru": "тот",
+   "en": "that (with a “he” noun)",
+   "note": "та, то, те for she, it and plural"
+  },
+  {
+   "id": "sosed",
+   "ru": "сос+ед",
+   "en": "neighbour (a man)"
+  },
+  {
+   "id": "sosedka",
+   "ru": "сос+едка",
+   "en": "neighbour (a woman)"
+  },
+  {
+   "id": "bednyy",
+   "ru": "б+едный",
+   "en": "poor"
+  },
+  {
+   "id": "dengi",
+   "ru": "д+еньги",
+   "en": "money",
+   "note": "always plural: мо+и д+еньги"
+  },
+  {
+   "id": "ya-zanyat",
+   "ru": "Я з+анят. Я занят+а.",
+   "en": "I’m busy. (a man / a woman)",
+   "note": "use the one that fits you"
+  },
+  {
+   "id": "ochen-zhal",
+   "ru": "+Очень жаль.",
+   "en": "What a pity. / I’m so sorry."
+  },
+  {
+   "id": "inogda",
+   "ru": "иногд+а",
+   "en": "sometimes"
+  }
+ ],
+ "extra": {
+  "type": "grammar",
+  "title": "+Этот, +эта, +эти",
+  "titleEn": "This and that",
+  "ru": "+Это дом. ≠ +Этот дом н+овый.",
+  "table": [
+   [
+    "дом (he)",
+    "+этот дом",
+    "тот дом"
+   ],
+   [
+    "маш+ина (she)",
+    "+эта маш+ина",
+    "та маш+ина"
+   ],
+   [
+    "сл+ово (it)",
+    "+это сл+ово",
+    "то сл+ово"
+   ],
+   [
+    "д+ети (plural)",
+    "+эти д+ети",
+    "те д+ети"
+   ]
+  ],
+  "note": "+Этот / +эта / +эти = this / these. It matches the noun, like мой / мо+я / мо+и. Тот / та / то / те = that. Careful: +Это on its own means “this is” and never changes: +Это маш+ина = This is a car. +Эта маш+ина н+овая = This car is new.",
+  "input": [
+   {
+    "ru": "+Эта маш+ина н+овая.",
+    "q": "What does it say?",
+    "opts": [
+     "This car is new.",
+     "This is a new car."
+    ],
+    "a": 0,
+    "why": "+эта + noun = this car"
+   },
+   {
+    "ru": "+Это н+овая маш+ина.",
+    "q": "What does it say?",
+    "opts": [
+     "This is a new car.",
+     "This car is new."
+    ],
+    "a": 0,
+    "why": "+это on its own = this is"
+   },
+   {
+    "ru": "+Эти л+юди бог+атые.",
+    "q": "Who is rich?",
+    "opts": [
+     "these people",
+     "this man",
+     "that woman"
+    ],
+    "a": 0,
+    "why": "+эти = these"
+   },
+   {
+    "ru": "Тот мужч+ина — мой сос+ед.",
+    "q": "Who is the neighbour?",
+    "opts": [
+     "that man",
+     "this woman",
+     "those people"
+    ],
+    "a": 0,
+    "why": "тот = that (a “he” word)"
+   }
+  ],
+  "produce": [
+   {
+    "en": "This woman is my neighbour.",
+    "ru": "+Эта ж+енщина — мо+я сос+едка.",
+    "hint": "ж+енщина is a “she” word → +эта"
+   },
+   {
+    "en": "These children are small.",
+    "ru": "+Эти д+ети м+аленькие.",
+    "hint": "plural → +эти, and -ие"
+   },
+   {
+    "en": "That man is rich.",
+    "ru": "Тот мужч+ина бог+атый.",
+    "hint": "мужч+ина is a “he” word → тот"
+   },
+   {
+    "en": "This is my money.",
+    "ru": "+Это мо+и д+еньги.",
+    "hint": "“this is” → +это, which never changes; д+еньги is plural → мо+и"
+   },
+   {
+    "en": "This city is big.",
+    "ru": "+Этот г+ород больш+ой.",
+    "hint": "г+ород is a “he” word → +этот"
+   }
+  ]
+ },
+ "speak": {
+  "prompt": "Point at things around you and describe them",
+  "model": {
+   "ru": "+Это мой дом. +Этот дом ст+арый, но +очень крас+ивый.",
+   "en": "This is my house. This house is old, but very beautiful."
+  },
+  "rounds": [
+   45,
+   30
+  ]
+ },
+ "watch": [
+  {
+   "label": "Nastya · Day 4, этот / тот on the board",
+   "url": "https://www.youtube.com/watch?v=kSGHLWYcdqQ&t=1261s"
+  }
+ ],
+ "grammarKnown": [
+  "этот / эта / это / эти = this / these, matching the noun",
+  "тот / та / то / те = that",
+  "Это + noun = this is (never changes)"
+ ],
+ "chat": {
+  "scenario": "We look out of the window at the street. I point at people and things; you tell me about them with этот / эта / эти.",
+  "goal": "describe 4 people or things with этот / эта / эти + an adjective",
+  "targets": [
+   "этот (he) / эта (she) / эти (plural) matching the noun",
+   "Это… (this is) vs Этот… (this …)"
+  ],
+  "forms": "Эта женщина (not \"этот женщина\"). Этот мужчина (мужчина is masculine). Эти люди. Это мой сосед = This is my neighbour (это doesn't change there). Correct only этот / эта / эти."
+ },
+ "audio": {
+  "irina|+этот": "audio/a248fedf6d19.mp3",
+  "dmitri|+этот": "audio/6c000c5ff8d1.mp3",
+  "irina|+эта": "audio/3c30ca2f6db4.mp3",
+  "dmitri|+эта": "audio/630155e9301d.mp3",
+  "irina|+эти": "audio/ecd9ba680eee.mp3",
+  "dmitri|+эти": "audio/1642c30fd664.mp3",
+  "irina|тот": "audio/1df15f94e15c.mp3",
+  "dmitri|тот": "audio/f7c84249e56b.mp3",
+  "irina|сос+ед": "audio/0e38c566cc4a.mp3",
+  "dmitri|сос+ед": "audio/93bebdcbdc99.mp3",
+  "irina|сос+едка": "audio/588436601b66.mp3",
+  "dmitri|сос+едка": "audio/43afb6a2dad5.mp3",
+  "irina|б+едный": "audio/79b17ef8d6bc.mp3",
+  "dmitri|б+едный": "audio/31c021cf331b.mp3",
+  "irina|д+еньги": "audio/1a2a36dfb264.mp3",
+  "dmitri|д+еньги": "audio/b937f357f1bb.mp3",
+  "irina|Я з+анят. Я занят+а.": "audio/ffaffffa997c.mp3",
+  "dmitri|Я з+анят. Я занят+а.": "audio/42e3ad27f571.mp3",
+  "irina|+Очень жаль.": "audio/c1b649c82019.mp3",
+  "dmitri|+Очень жаль.": "audio/f6123114f05f.mp3",
+  "irina|иногд+а": "audio/e9ca87859ec1.mp3",
+  "dmitri|иногд+а": "audio/f8bce41403f9.mp3",
+  "ruslan|+Эта маш+ина н+овая.": "audio/75c81f51aa76.mp3",
+  "ruslan|+Это н+овая маш+ина.": "audio/d17b65cdf6ae.mp3",
+  "ruslan|+Эти л+юди бог+атые.": "audio/33d11c4ea8e8.mp3",
+  "ruslan|Тот мужч+ина — мой сос+ед.": "audio/c222c80734f5.mp3",
+  "ruslan|+Эта ж+енщина — мо+я сос+едка.": "audio/1e9ce171d609.mp3",
+  "ruslan|+Эти д+ети м+аленькие.": "audio/c5d72dcfe21c.mp3",
+  "ruslan|Тот мужч+ина бог+атый.": "audio/a13c8bdf7f86.mp3",
+  "ruslan|+Это мо+и д+еньги.": "audio/c502b06f7c81.mp3",
+  "ruslan|+Этот г+ород больш+ой.": "audio/76003673ba00.mp3",
+  "denis|+Это мой дом. +Этот дом ст+арый, но +очень крас+ивый.": "audio/856d2b2a530c.mp3"
+ }
+}

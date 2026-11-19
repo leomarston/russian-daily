@@ -1,0 +1,245 @@
+{
+ "n": 13,
+ "id": "d13",
+ "lesson": 3,
+ "title": "Сос+ед",
+ "titleEn": "The neighbour",
+ "new": [
+  {
+   "id": "frantsuz",
+   "ru": "франц+уз",
+   "en": "Frenchman"
+  },
+  {
+   "id": "frantsuzhenka",
+   "ru": "франц+уженка",
+   "en": "Frenchwoman"
+  },
+  {
+   "id": "russkiy-yazyk",
+   "ru": "р+усский яз+ык",
+   "en": "the Russian language"
+  },
+  {
+   "id": "kto-vy-po-natsionalnosti",
+   "ru": "Кто вы по национ+альности?",
+   "en": "What’s your nationality?",
+   "note": "answer: Я + nationality, e.g. Я р+усский / р+усская"
+  },
+  {
+   "id": "ya-soglasen",
+   "ru": "Я согл+асен. Я согл+асна.",
+   "en": "I agree. (a man / a woman)",
+   "note": "use the one that fits you"
+  },
+  {
+   "id": "k-sozhaleniyu-net",
+   "ru": "К сожал+ению, нет.",
+   "en": "Unfortunately, no."
+  },
+  {
+   "id": "mne-pora",
+   "ru": "Мне пор+а.",
+   "en": "I have to go."
+  },
+  {
+   "id": "mozhno",
+   "ru": "М+ожно?",
+   "en": "May I? / Is it OK?",
+   "note": "pointing at a free chair, or at the door"
+  },
+  {
+   "id": "da-konechno",
+   "ru": "Да, кон+ечно.",
+   "en": "Yes, of course.",
+   "note": "кон+ечно is said кон+ешно"
+  },
+  {
+   "id": "lyubimyy",
+   "ru": "люб+имый",
+   "en": "favourite; beloved",
+   "note": "мо+я люб+имая кн+ига"
+  },
+  {
+   "id": "kak-vsegda",
+   "ru": "Как всегд+а.",
+   "en": "As always."
+  }
+ ],
+ "extra": {
+  "type": "story",
+  "title": "Сос+ед",
+  "titleEn": "The neighbour",
+  "setup": "Masha asks Oleg about a man next door.",
+  "lines": [
+   {
+    "who": "М+аша",
+    "v": "irina",
+    "ru": "Кто +этот мужч+ина?",
+    "en": "Who’s that man?"
+   },
+   {
+    "who": "Ол+ег",
+    "v": "dmitri",
+    "ru": "+Это наш н+овый сос+ед. Он франц+уз.",
+    "en": "That’s our new neighbour. He’s French."
+   },
+   {
+    "who": "М+аша",
+    "v": "irina",
+    "ru": "Он говор+ит по-р+усски?",
+    "en": "Does he speak Russian?"
+   },
+   {
+    "who": "Ол+ег",
+    "v": "dmitri",
+    "ru": "Да, немн+ого. Ег+о жен+а р+усская.",
+    "en": "Yes, a little. His wife is Russian."
+   },
+   {
+    "who": "М+аша",
+    "v": "irina",
+    "ru": "А +эти д+ети?",
+    "en": "And these children?"
+   },
+   {
+    "who": "Ол+ег",
+    "v": "dmitri",
+    "ru": "+Это их д+ети. Он+и говор+ят по-р+усски.",
+    "en": "Those are their children. They speak Russian."
+   },
+   {
+    "who": "М+аша",
+    "v": "irina",
+    "ru": "Р+усский яз+ык — сл+ожный яз+ык!",
+    "en": "Russian is a difficult language!"
+   },
+   {
+    "who": "Ол+ег",
+    "v": "dmitri",
+    "ru": "Да. Мне пор+а. Пок+а!",
+    "en": "Yes. I have to go. Bye!"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Who is the man?",
+    "opts": [
+     "the new neighbour",
+     "Oleg’s brother",
+     "Masha’s husband"
+    ],
+    "a": 0
+   },
+   {
+    "q": "What is his nationality?",
+    "opts": [
+     "French",
+     "German",
+     "Russian"
+    ],
+    "a": 0
+   },
+   {
+    "q": "How well does he speak Russian?",
+    "opts": [
+     "a little",
+     "very well",
+     "not at all"
+    ],
+    "a": 0
+   },
+   {
+    "q": "Who is Russian?",
+    "opts": [
+     "his wife",
+     "Oleg",
+     "Masha’s friend"
+    ],
+    "a": 0
+   }
+  ],
+  "dictation": [
+   {
+    "ru": "Он говор+ит по-р+усски?",
+    "v": "irina"
+   },
+   {
+    "ru": "+Это наш н+овый сос+ед.",
+    "v": "dmitri"
+   },
+   {
+    "ru": "Мне пор+а.",
+    "v": "dmitri"
+   }
+  ]
+ },
+ "speak": {
+  "prompt": "Tell me about a neighbour or a friend from another country",
+  "model": {
+   "ru": "Мой сос+ед н+емец. Он говор+ит по-н+емецки и немн+ого по-р+усски.",
+   "en": "My neighbour is German. He speaks German and a little Russian."
+  },
+  "rounds": [
+   45,
+   30
+  ]
+ },
+ "watch": [
+  {
+   "label": "Nastya · Day 3, expressions (Можно войти?, Я занят, Я согласен)",
+   "url": "https://www.youtube.com/watch?v=ZXiTv-Ydtbc&t=1061s"
+  },
+  {
+   "label": "Nastya · Day 2, polite phrases",
+   "url": "https://www.youtube.com/watch?v=Vrglf_fBbcQ&t=1039s"
+  }
+ ],
+ "grammarKnown": [
+  "Я согласен / согласна, Я занят / занята: men and women say these differently"
+ ],
+ "chat": {
+  "scenario": "You meet a new neighbour (me) on the stairs. Find out my nationality and which languages I speak; I ask you the same. Then I ask Можно…? about borrowing something, and you answer politely.",
+  "goal": "ask 3 questions and answer 3, using вы",
+  "targets": [
+   "formal вы: Вы говорите…?, Кто вы по национальности?",
+   "the nationality matches the person: француз / француженка, немец / немка"
+  ],
+  "forms": "Вы говорите по-русски? (formal, -ите). Я согласен (man) / Я согласна (woman). Да, конечно. К сожалению, нет. Correct only говорить endings with вы and nationality words."
+ },
+ "audio": {
+  "irina|франц+уз": "audio/6156419cf99f.mp3",
+  "dmitri|франц+уз": "audio/c463b0ea6af9.mp3",
+  "irina|франц+уженка": "audio/a96ce097bef5.mp3",
+  "dmitri|франц+уженка": "audio/8f824ba1cc03.mp3",
+  "irina|р+усский яз+ык": "audio/823598c35e1b.mp3",
+  "dmitri|р+усский яз+ык": "audio/80b62aaa71f7.mp3",
+  "irina|Кто вы по национ+альности?": "audio/85feabd02d20.mp3",
+  "dmitri|Кто вы по национ+альности?": "audio/93c363365b25.mp3",
+  "irina|Я согл+асен. Я согл+асна.": "audio/c865f54fc116.mp3",
+  "dmitri|Я согл+асен. Я согл+асна.": "audio/78523f4ee70e.mp3",
+  "irina|К сожал+ению, нет.": "audio/0b329b1b3321.mp3",
+  "dmitri|К сожал+ению, нет.": "audio/1d2a10339629.mp3",
+  "irina|Мне пор+а.": "audio/1a15dc403580.mp3",
+  "dmitri|Мне пор+а.": "audio/9f616a486742.mp3",
+  "irina|М+ожно?": "audio/6c776c6f2087.mp3",
+  "dmitri|М+ожно?": "audio/051f6435ffa7.mp3",
+  "irina|Да, кон+ечно.": "audio/9bb9300b65ec.mp3",
+  "dmitri|Да, кон+ечно.": "audio/80503399dbc3.mp3",
+  "irina|люб+имый": "audio/61ccc2ed91da.mp3",
+  "dmitri|люб+имый": "audio/9e56b78090f5.mp3",
+  "irina|Как всегд+а.": "audio/d2529387361f.mp3",
+  "dmitri|Как всегд+а.": "audio/0316662138c9.mp3",
+  "irina|Кто +этот мужч+ина?": "audio/8da5553429bb.mp3",
+  "dmitri|+Это наш н+овый сос+ед. Он франц+уз.": "audio/df2fdb9c1a5f.mp3",
+  "irina|Он говор+ит по-р+усски?": "audio/b914b43474d4.mp3",
+  "dmitri|Да, немн+ого. Ег+о жен+а р+усская.": "audio/e267a7e75d6d.mp3",
+  "irina|А +эти д+ети?": "audio/78c43667a441.mp3",
+  "dmitri|+Это их д+ети. Он+и говор+ят по-р+усски.": "audio/9cf0cf3e4ddc.mp3",
+  "irina|Р+усский яз+ык — сл+ожный яз+ык!": "audio/edfe8451eba4.mp3",
+  "dmitri|Да. Мне пор+а. Пок+а!": "audio/7ed62616e939.mp3",
+  "dmitri|+Это наш н+овый сос+ед.": "audio/c9e2016ea776.mp3",
+  "denis|Мой сос+ед н+емец. Он говор+ит по-н+емецки и немн+ого по-р+усски.": "audio/1571de965f6b.mp3",
+  "story|d13": "audio/story-d13-2ec9fa30.mp3"
+ }
+}
